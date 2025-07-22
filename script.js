@@ -984,4 +984,53 @@ function initFAQAccordion() {
     });
 }
 
-console.log('AWS Community Day 2025 - Professional Landing Page Loaded! 🚀');
+// Perfect Auto-Sliding Gallery for Previous Event Section
+let currentGallerySlideIndex = 0;
+let galleryInterval;
+
+function initPerfectAutoGallery() {
+    const slides = document.querySelectorAll('.gallery-slide');
+    
+    if (slides.length === 0) return;
+    
+    // Start with first slide active
+    slides[0].classList.add('active');
+    
+    function nextSlide() {
+        // Remove active class from current slide
+        slides[currentGallerySlideIndex].classList.remove('active');
+        
+        // Move to next slide
+        currentGallerySlideIndex = (currentGallerySlideIndex + 1) % slides.length;
+        
+        // Add active class to new slide with smooth transition
+        setTimeout(() => {
+            slides[currentGallerySlideIndex].classList.add('active');
+        }, 50);
+    }
+    
+    // Auto-advance slides every 4 seconds
+    galleryInterval = setInterval(nextSlide, 4000);
+    
+    // Pause on hover for better user experience
+    const galleryContainer = document.querySelector('.gallery-container');
+    if (galleryContainer) {
+        galleryContainer.addEventListener('mouseenter', () => {
+            clearInterval(galleryInterval);
+        });
+        
+        galleryContainer.addEventListener('mouseleave', () => {
+            galleryInterval = setInterval(nextSlide, 4000);
+        });
+    }
+}
+
+// Initialize perfect auto gallery when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for images to load before starting gallery
+    window.addEventListener('load', () => {
+        setTimeout(initPerfectAutoGallery, 1000);
+    });
+});
+
+console.log('AWS Community Day 2025 - Perfect Auto Gallery Loaded! 🎯');
