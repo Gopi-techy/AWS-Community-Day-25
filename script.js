@@ -30,27 +30,84 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation link highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
+// Active navigation link highlighting - Fixed for all sections
+let scrollTimeout;
+const activeNavHandler = () => {
     const navLinks = document.querySelectorAll('.nav-link');
+    const sections = [];
     
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+    // Get all sections that have corresponding nav links
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            const sectionId = href.substring(1);
+            const section = document.getElementById(sectionId);
+            if (section) {
+                sections.push({ id: sectionId, element: section, link: link });
+            }
         }
     });
-
+    
+    if (sections.length === 0) return;
+    
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const navbarHeight = 80; // Fixed navbar height
+    
+    let current = sections[0].id; // Default to first section
+    
+    // Check each section to find which one is most prominent in viewport
+    sections.forEach((section, index) => {
+        const sectionTop = section.element.offsetTop - navbarHeight - 20;
+        const sectionBottom = sectionTop + section.element.offsetHeight;
+        
+        // Check if section is in viewport or if we've scrolled past it
+        if (scrollPosition >= sectionTop - 50) {
+            // If this is the last section or if we haven't reached the next section yet
+            if (index === sections.length - 1 || scrollPosition < sections[index + 1].element.offsetTop - navbarHeight - 20) {
+                current = section.id;
+            }
+        }
+    });
+    
+    // Special case: if we're at the very top of the page
+    if (scrollPosition < 50) {
+        current = sections[0].id;
+    }
+    
+    // Update nav links
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === `#${current}`) {
             link.classList.add('active');
         }
     });
+    
+    // Debug log to help troubleshoot
+    console.log(`Scroll: ${scrollPosition}, Active: ${current}`);
+};
+
+// Optimized scroll handler for real-time updates
+window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(activeNavHandler, 5); // Faster response
 });
+
+// Also trigger on resize to recalculate positions
+window.addEventListener('resize', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(activeNavHandler, 100);
+});
+
+// Initialize navbar highlighting immediately when script loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(activeNavHandler, 100);
+    });
+} else {
+    setTimeout(activeNavHandler, 100);
+}
 
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
@@ -949,6 +1006,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpeakerCardEffects();
     initProfessionalLoadingSequence();
     initFAQAccordion();
+    
+    // Initialize navbar scroll highlighting
+    activeNavHandler();
 });
 
 // Speaker Card Flip Functionality
