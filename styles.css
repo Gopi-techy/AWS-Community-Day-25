@@ -2491,109 +2491,321 @@ body {
 /* Countdown Timer - Tablet Responsive (768px and below) */
 @media (max-width: 768px) {
     .countdown {
-        padding: 3rem 0;
+        padding: 2.5rem 0;
     }
 
     .countdown-content {
-        padding: 0 20px;
+        padding: 0 15px;
+        max-width: 100%;
     }
 
     .countdown-header {
-        margin-bottom: 2.2rem;
+        margin-bottom: 2rem;
     }
 
     .countdown-header h2 {
-        font-size: 2.4rem;
-        margin-bottom: 0.9rem;
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.2;
     }
 
     .countdown-header p {
-        font-size: 1.05rem;
-        margin-bottom: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
     }
 
     .event-date {
+        font-size: 0.85rem;
+        padding: 0.7rem 1.2rem;
+        gap: 0.4rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .event-date i {
         font-size: 0.9rem;
-        padding: 0.8rem 1.4rem;
-        gap: 0.5rem;
     }
 
     .timer-container {
-        gap: 1.5rem;
-        margin-bottom: 2.8rem;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 10px;
     }
 
     .timer-box {
-        transform: scale(0.9);
-        margin: 0.2rem;
+        transform: scale(0.85);
+        margin: 0.1rem;
     }
 
     .timer-circle {
-        width: 90px;
-        height: 90px;
+        width: 85px;
+        height: 85px;
     }
 
     .progress-ring {
-        width: 90px;
-        height: 90px;
+        width: 85px;
+        height: 85px;
     }
 
     .progress-ring-bg,
     .progress-ring-fill {
-        cx: 45;
-        cy: 45;
-        r: 40;
+        cx: 42.5;
+        cy: 42.5;
+        r: 37.5;
     }
 
     .progress-ring-fill {
-        stroke-dasharray: 251.33; /* 2 * π * 40 */
-        stroke-dashoffset: 251.33;
-        stroke-width: 3;
+        stroke-dasharray: 235.6; /* 2 * π * 37.5 */
+        stroke-dashoffset: 235.6;
+        stroke-width: 2.5;
     }
 
     .progress-ring-bg {
-        stroke-width: 3;
+        stroke-width: 2.5;
     }
 
     .timer-number {
-        font-size: 1.6rem;
-        margin-bottom: 0.1rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.05rem;
     }
 
     .timer-label {
-        font-size: 0.7rem;
-        letter-spacing: 0.6px;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
     }
 
     .timer-separator {
-        font-size: 2rem;
-        margin: 0 0.8rem;
+        font-size: 1.8rem;
+        margin: 0 0.6rem;
     }
 
     .countdown-message {
-        margin-bottom: 2rem;
+        margin-bottom: 1.8rem;
+        padding: 0 10px;
     }
 
     .countdown-message p {
-        font-size: 0.95rem;
-        padding: 0.8rem 1.4rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+        line-height: 1.4;
+        max-width: 90%;
+        margin: 0 auto;
     }
 
     .countdown-actions {
-        gap: 1rem;
+        gap: 0.8rem;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
+        padding: 0 10px;
     }
 
     .countdown-actions .btn {
-        min-width: 160px;
-        padding: 11px 22px;
+        min-width: 140px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+        border-radius: 25px;
+    }
+}
+
+/* Countdown Timer - Mobile Responsive (480px and below) */
+@media (max-width: 480px) {
+    .countdown {
+        padding: 2rem 0;
+    }
+
+    .countdown-content {
+        padding: 0 10px;
+    }
+
+    .countdown-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .countdown-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.1;
+    }
+
+    .countdown-header p {
         font-size: 0.9rem;
-        border-radius: 30px;
+        margin-bottom: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .event-date {
+        font-size: 0.75rem;
+        padding: 0.6rem 1rem;
+        gap: 0.3rem;
+        flex-wrap: wrap;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .event-date i {
+        font-size: 0.8rem;
+    }
+
+    .timer-container {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 5px;
+    }
+
+    .timer-box {
+        transform: scale(0.75);
+        margin: 0;
+    }
+
+    .timer-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .progress-ring {
+        width: 70px;
+        height: 70px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-fill {
+        cx: 35;
+        cy: 35;
+        r: 30;
+    }
+
+    .progress-ring-fill {
+        stroke-dasharray: 188.5; /* 2 * π * 30 */
+        stroke-dashoffset: 188.5;
+        stroke-width: 2;
+    }
+
+    .progress-ring-bg {
+        stroke-width: 2;
+    }
+
+    .timer-number {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+
+    .timer-label {
+        font-size: 0.55rem;
+        letter-spacing: 0.3px;
+    }
+
+    .timer-separator {
+        font-size: 1.4rem;
+        margin: 0 0.3rem;
+        display: none;
+    }
+
+    .countdown-message {
+        margin-bottom: 1.5rem;
+        padding: 0 5px;
+    }
+
+    .countdown-message p {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        line-height: 1.3;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+
+    .countdown-actions {
+        gap: 0.6rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5px;
+    }
+
+    .countdown-actions .btn {
+        min-width: 200px;
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        border-radius: 25px;
+        text-align: center;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .countdown {
+        padding: 1.5rem 0;
+    }
+
+    .countdown-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .countdown-header p {
+        font-size: 0.85rem;
+    }
+
+    .event-date {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .timer-container {
+        gap: 0.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .timer-box {
+        transform: scale(0.65);
+    }
+
+    .timer-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .progress-ring {
+        width: 60px;
+        height: 60px;
+    }
+
+    .progress-ring-bg,
+    .progress-ring-fill {
+        cx: 30;
+        cy: 30;
+        r: 25;
+    }
+
+    .progress-ring-fill {
+        stroke-dasharray: 157.1; /* 2 * π * 25 */
+        stroke-dashoffset: 157.1;
+        stroke-width: 1.5;
+    }
+
+    .progress-ring-bg {
+        stroke-width: 1.5;
+    }
+
+    .timer-number {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .timer-label {
+        font-size: 0.5rem;
+    }
+
+    .countdown-actions .btn {
+        min-width: 180px;
+        padding: 10px 16px;
+        font-size: 0.8rem;
     }
 }
 

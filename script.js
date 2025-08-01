@@ -30,96 +30,120 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation link highlighting - Fixed for all sections
+// Optimized active navigation link highlighting
 let scrollTimeout;
+let isScrolling = false;
+
 const activeNavHandler = () => {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = [];
+    if (isScrolling) return; // Prevent overlapping calls
+    isScrolling = true;
     
-    // Get all sections that have corresponding nav links
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            const sectionId = href.substring(1);
-            const section = document.getElementById(sectionId);
-            if (section) {
-                sections.push({ id: sectionId, element: section, link: link });
-            }
-        }
-    });
-    
-    if (sections.length === 0) return;
-    
-    const scrollPosition = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const navbarHeight = 80; // Fixed navbar height
-    
-    let current = sections[0].id; // Default to first section
-    
-    // Check each section to find which one is most prominent in viewport
-    sections.forEach((section, index) => {
-        const sectionTop = section.element.offsetTop - navbarHeight - 20;
-        const sectionBottom = sectionTop + section.element.offsetHeight;
+    try {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = [];
         
-        // Check if section is in viewport or if we've scrolled past it
-        if (scrollPosition >= sectionTop - 50) {
-            // If this is the last section or if we haven't reached the next section yet
-            if (index === sections.length - 1 || scrollPosition < sections[index + 1].element.offsetTop - navbarHeight - 20) {
-                current = section.id;
+        // Get all sections that have corresponding nav links
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const sectionId = href.substring(1);
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    sections.push({ id: sectionId, element: section, link: link });
+                }
             }
+        });
+        
+        if (sections.length === 0) {
+            isScrolling = false;
+            return;
         }
-    });
-    
-    // Special case: if we're at the very top of the page
-    if (scrollPosition < 50) {
-        current = sections[0].id;
+        
+        const scrollPosition = window.pageYOffset;
+        const navbarHeight = 80;
+        
+        let current = sections[0].id; // Default to first section
+        
+        // Check each section to find which one is most prominent in viewport
+        sections.forEach((section, index) => {
+            const sectionTop = section.element.offsetTop - navbarHeight - 20;
+            
+            if (scrollPosition >= sectionTop - 50) {
+                if (index === sections.length - 1 || scrollPosition < sections[index + 1].element.offsetTop - navbarHeight - 20) {
+                    current = section.id;
+                }
+            }
+        });
+        
+        // Special case: if we're at the very top of the page
+        if (scrollPosition < 50) {
+            current = sections[0].id;
+        }
+        
+        // Update nav links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href');
+            if (linkHref === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    } catch (error) {
+        console.warn('Navigation highlight error:', error);
+    } finally {
+        isScrolling = false;
     }
-    
-    // Update nav links
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const linkHref = link.getAttribute('href');
-        if (linkHref === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-    
-    // Debug log to help troubleshoot
-    console.log(`Scroll: ${scrollPosition}, Active: ${current}`);
 };
 
-// Optimized scroll handler for real-time updates
-window.addEventListener('scroll', () => {
+// Optimized scroll handler for navigation
+const optimizedScrollHandler = () => {
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(activeNavHandler, 5); // Faster response
-});
+    scrollTimeout = setTimeout(activeNavHandler, isMobileDevice ? 100 : 16);
+};
+
+// Apply optimized scroll handler
+window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
 
 // Also trigger on resize to recalculate positions
 window.addEventListener('resize', () => {
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(activeNavHandler, 100);
+    scrollTimeout = setTimeout(activeNavHandler, 200);
 });
 
-// Initialize navbar highlighting immediately when script loads
+// Initialize navbar highlighting when ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(activeNavHandler, 100);
+        setTimeout(activeNavHandler, 200);
     });
 } else {
-    setTimeout(activeNavHandler, 100);
+    setTimeout(activeNavHandler, 200);
 }
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
+// Optimized scroll handlers with mobile performance in mind
+let scrollTimer;
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+// Optimized navbar scroll handler
+const optimizedNavbarScroll = () => {
+    if (scrollTimer) return; // Throttle scroll events
+    
+    scrollTimer = setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        }
+        scrollTimer = null;
+    }, isMobileDevice ? 50 : 16); // Slower on mobile for better performance
+};
+
+// Apply optimized navbar scroll
+window.addEventListener('scroll', optimizedNavbarScroll, { passive: true });
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -142,66 +166,7 @@ document.querySelectorAll('.about-card, .speaker-card, .timeline-item').forEach(
 
 // Registration form handling removed - no longer needed
 
-// Countdown timer using existing HTML structure
-function createCountdown() {
-    // Use the existing countdown elements from HTML
-    const daysElement = document.getElementById('days');
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-    
-    if (!daysElement) return; // Exit if countdown elements don't exist
-    
-    const eventDate = new Date('2025-09-20T08:00:00+05:30'); // September 20, 2025 at 8:00 AM IST
-    
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = eventDate.getTime() - now;
-        
-        if (distance > 0) {
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            daysElement.textContent = days.toString().padStart(2, '0');
-            hoursElement.textContent = hours.toString().padStart(2, '0');
-            minutesElement.textContent = minutes.toString().padStart(2, '0');
-            secondsElement.textContent = seconds.toString().padStart(2, '0');
-            
-            // Update progress rings
-            updateProgressRing('days-progress', days, 365);
-            updateProgressRing('hours-progress', hours, 24);
-            updateProgressRing('minutes-progress', minutes, 60);
-            updateProgressRing('seconds-progress', seconds, 60);
-        } else {
-            const countdownMessage = document.getElementById('countdown-message');
-            if (countdownMessage) {
-                countdownMessage.innerHTML = '<p style="color: #FF9900; font-weight: 600;">🎉 Event is Live! 🎉</p>';
-            }
-            daysElement.textContent = '00';
-            hoursElement.textContent = '00';
-            minutesElement.textContent = '00';
-            secondsElement.textContent = '00';
-        }
-    }
-    
-    function updateProgressRing(id, current, max) {
-        const progressElement = document.getElementById(id);
-        if (progressElement) {
-            const circumference = 2 * Math.PI * 54; // radius of 54
-            const progress = 1 - (current / max);
-            const offset = circumference - (progress * circumference);
-            progressElement.style.strokeDasharray = circumference;
-            progressElement.style.strokeDashoffset = offset;
-        }
-    }
-    
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-}
-
-// Countdown will be initialized in DOMContentLoaded event
+// Legacy countdown function removed to prevent conflicts with CountdownTimer class
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
@@ -284,7 +249,7 @@ const rippleStyle = document.createElement('style');
 rippleStyle.textContent = rippleCSS;
 document.head.appendChild(rippleStyle);
 
-// Performance optimization: Debounce scroll events
+// Performance optimization: Debounce scroll events - Disabled to prevent mobile conflicts
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -297,10 +262,10 @@ function debounce(func, wait) {
     };
 }
 
-// Apply debouncing to scroll events
-window.addEventListener('scroll', debounce(() => {
-    // Your scroll event handlers here
-}, 10));
+// Generic debounced scroll handler (not actively used to prevent conflicts)
+// window.addEventListener('scroll', debounce(() => {
+//     // Reserved for future scroll handlers if needed
+// }, 100));
 
 // Add keyboard navigation support
 document.addEventListener('keydown', (e) => {
@@ -337,13 +302,15 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// About Section Slideshow
+// About Section Slideshow - Disabled to prevent mobile conflicts
 let slideIndex = 1;
-let slideInterval;
+// slideInterval removed to prevent mobile page reload issues
 
 function showSlides(n) {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
+    
+    if (slides.length === 0) return; // Exit if no slides exist
     
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
@@ -360,38 +327,22 @@ function showSlides(n) {
 }
 
 function currentSlide(n) {
-    clearInterval(slideInterval);
+    // Auto-interval removed to prevent mobile conflicts
     showSlides(slideIndex = n);
-    startSlideInterval();
 }
 
-function nextSlide() {
-    showSlides(slideIndex += 1);
-}
+// nextSlide function removed to prevent auto-advancement
 
-function startSlideInterval() {
-    slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
-}
-
-// Initialize slideshow when page loads
+// Static slideshow initialization without auto-advance
 document.addEventListener('DOMContentLoaded', () => {
-    showSlides(slideIndex);
-    startSlideInterval();
-    
-    // Pause slideshow on hover
-    const slideshowContainer = document.querySelector('.slideshow-container');
-    if (slideshowContainer) {
-        slideshowContainer.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        slideshowContainer.addEventListener('mouseleave', () => {
-            startSlideInterval();
-        });
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        showSlides(slideIndex);
+        console.log('Static slideshow initialized (auto-advance disabled for mobile compatibility)');
     }
 });
 
-// Countdown Timer Functionality
+// Countdown Timer Functionality - Optimized for Mobile
 class CountdownTimer {
     constructor() {
         // Event date: September 20, 2025 at 8:00 AM IST
@@ -413,23 +364,26 @@ class CountdownTimer {
         this.circumference = this.getCircumference();
         this.isEventStarted = false;
         this.isEventEnded = false;
+        this.isDestroyed = false;
         
         this.init();
     }
     
     getCircumference() {
         // Check screen size and return appropriate circumference
-        if (window.innerWidth <= 480) {
-            return 2 * Math.PI * 34; // Mobile radius
+        if (window.innerWidth <= 360) {
+            return 2 * Math.PI * 25; // Extra small mobile
+        } else if (window.innerWidth <= 480) {
+            return 2 * Math.PI * 30; // Small mobile
         } else if (window.innerWidth <= 768) {
-            return 2 * Math.PI * 44; // Tablet radius
+            return 2 * Math.PI * 37.5; // Tablet
         } else {
-            return 2 * Math.PI * 54; // Desktop radius
+            return 2 * Math.PI * 45; // Desktop
         }
     }
     
     init() {
-        if (!this.elements.days) return; // Exit if countdown elements don't exist
+        if (!this.elements.days || this.isDestroyed) return;
         
         this.initProgressRings();
         this.updateCountdown();
@@ -437,170 +391,140 @@ class CountdownTimer {
     }
     
     initProgressRings() {
-        // Initialize progress rings
-        Object.values(this.elements).forEach(element => {
-            if (element && element.id && element.id.includes('progress')) {
-                element.style.strokeDasharray = this.circumference;
-                element.style.strokeDashoffset = this.circumference;
-            }
-        });
+        // Initialize progress rings with error handling
+        try {
+            Object.values(this.elements).forEach(element => {
+                if (element && element.id && element.id.includes('progress')) {
+                    element.style.strokeDasharray = this.circumference;
+                    element.style.strokeDashoffset = this.circumference;
+                }
+            });
+        } catch (error) {
+            console.warn('Progress ring initialization error:', error);
+        }
     }
     
     updateCountdown() {
-        const now = new Date().getTime();
-        const eventTime = this.eventDate.getTime();
-        const timeDifference = eventTime - now;
+        if (this.isDestroyed) return;
         
-        if (timeDifference <= 0) {
-            this.handleEventStarted();
-            return;
+        try {
+            const now = new Date().getTime();
+            const eventTime = this.eventDate.getTime();
+            const timeDifference = eventTime - now;
+            
+            if (timeDifference <= 0) {
+                this.handleEventStarted();
+                return;
+            }
+            
+            // Calculate time units
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            
+            // Update display
+            this.updateDisplay(days, hours, minutes, seconds);
+            this.updateProgressRings(days, hours, minutes, seconds);
+        } catch (error) {
+            console.error('Countdown update error:', error);
+            this.destroy();
         }
-        
-        // Calculate time units
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-        
-        // Update display
-        this.updateDisplay(days, hours, minutes, seconds);
-        this.updateProgressRings(days, hours, minutes, seconds);
-        this.addPulseEffect();
     }
     
     updateDisplay(days, hours, minutes, seconds) {
-        if (this.elements.days) this.elements.days.textContent = this.formatNumber(days);
-        if (this.elements.hours) this.elements.hours.textContent = this.formatNumber(hours);
-        if (this.elements.minutes) this.elements.minutes.textContent = this.formatNumber(minutes);
-        if (this.elements.seconds) this.elements.seconds.textContent = this.formatNumber(seconds);
+        try {
+            if (this.elements.days) this.elements.days.textContent = this.formatNumber(days);
+            if (this.elements.hours) this.elements.hours.textContent = this.formatNumber(hours);
+            if (this.elements.minutes) this.elements.minutes.textContent = this.formatNumber(minutes);
+            if (this.elements.seconds) this.elements.seconds.textContent = this.formatNumber(seconds);
+        } catch (error) {
+            console.warn('Display update error:', error);
+        }
     }
     
     updateProgressRings(days, hours, minutes, seconds) {
-        // Calculate progress percentages
-        const daysProgress = 1 - (days % 365) / 365;
-        const hoursProgress = 1 - hours / 24;
-        const minutesProgress = 1 - minutes / 60;
-        const secondsProgress = 1 - seconds / 60;
-        
-        this.setProgress(this.elements.daysProgress, daysProgress);
-        this.setProgress(this.elements.hoursProgress, hoursProgress);
-        this.setProgress(this.elements.minutesProgress, minutesProgress);
-        this.setProgress(this.elements.secondsProgress, secondsProgress);
+        try {
+            // Calculate progress percentages with bounds checking
+            const daysProgress = Math.min(1, Math.max(0, 1 - (days % 365) / 365));
+            const hoursProgress = Math.min(1, Math.max(0, 1 - hours / 24));
+            const minutesProgress = Math.min(1, Math.max(0, 1 - minutes / 60));
+            const secondsProgress = Math.min(1, Math.max(0, 1 - seconds / 60));
+            
+            this.setProgress(this.elements.daysProgress, daysProgress);
+            this.setProgress(this.elements.hoursProgress, hoursProgress);
+            this.setProgress(this.elements.minutesProgress, minutesProgress);
+            this.setProgress(this.elements.secondsProgress, secondsProgress);
+        } catch (error) {
+            console.warn('Progress rings update error:', error);
+        }
     }
     
     setProgress(element, progress) {
-        if (!element) return;
-        const offset = this.circumference - (progress * this.circumference);
-        element.style.strokeDashoffset = offset;
-    }
-    
-    addPulseEffect() {
-        // Add pulse effect to seconds for visual feedback
-        const secondsBox = document.getElementById('seconds-box');
-        if (secondsBox) {
-            secondsBox.style.animation = 'none';
-            setTimeout(() => {
-                secondsBox.style.animation = 'timerPulse 1s ease-in-out';
-            }, 10);
+        if (!element || this.isDestroyed) return;
+        
+        try {
+            const offset = this.circumference - (progress * this.circumference);
+            element.style.strokeDashoffset = offset;
+        } catch (error) {
+            console.warn('Progress setting error:', error);
         }
     }
     
     handleEventStarted() {
-        const now = new Date();
-        const eventEndTime = new Date(this.eventDate);
-        eventEndTime.setHours(eventEndTime.getHours() + 12); // Assume 12-hour event
-        
-        if (now < eventEndTime) {
-            // Event is currently happening
-            this.showEventStartedMessage();
-            this.isEventStarted = true;
-        } else {
-            // Event has ended
-            this.showEventEndedMessage();
-            this.isEventEnded = true;
+        try {
+            const now = new Date();
+            const eventEndTime = new Date(this.eventDate);
+            eventEndTime.setHours(eventEndTime.getHours() + 12); // Assume 12-hour event
+            
+            if (now < eventEndTime) {
+                this.showEventStartedMessage();
+                this.isEventStarted = true;
+            } else {
+                this.showEventEndedMessage();
+                this.isEventEnded = true;
+            }
+            
+            this.updateDisplay(0, 0, 0, 0);
+            this.updateProgressRings(0, 0, 0, 0);
+        } catch (error) {
+            console.error('Event started handling error:', error);
         }
-        
-        this.updateDisplay(0, 0, 0, 0);
-        this.updateProgressRings(0, 0, 0, 0);
     }
     
     showEventStartedMessage() {
-        if (this.elements.message) {
-            this.elements.message.innerHTML = `
-                <p style="color: #28a745; font-weight: 600;">
-                    <i class="fas fa-play-circle" style="margin-right: 0.5rem;"></i>
-                    The AWS Student Community Day 2025 is happening now! 🎉
-                </p>
-            `;
+        try {
+            if (this.elements.message) {
+                this.elements.message.innerHTML = `
+                    <p style="color: #28a745; font-weight: 600;">
+                        🎉 The AWS Student Community Day 2025 is happening now! 🎉
+                    </p>
+                `;
+            }
+            
+            if (this.elements.section) {
+                this.elements.section.classList.add('event-started');
+            }
+        } catch (error) {
+            console.warn('Event started message error:', error);
         }
-        
-        if (this.elements.section) {
-            this.elements.section.classList.add('event-started');
-        }
-        
-        this.addConfetti();
     }
     
     showEventEndedMessage() {
-        if (this.elements.message) {
-            this.elements.message.innerHTML = `
-                <p style="color: #6c757d; font-weight: 600;">
-                    <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
-                    Thank you for joining AWS Student Community Day 2025! 
-                </p>
-            `;
-        }
-        
-        if (this.elements.section) {
-            this.elements.section.classList.add('event-ended');
-        }
-    }
-    
-    addConfetti() {
-        // Simple confetti effect when event starts
-        const confettiColors = ['#FF9900', '#FFAD33', '#FFD700', '#FFA500'];
-        const confettiCount = 50;
-        
-        for (let i = 0; i < confettiCount; i++) {
-            const confetti = document.createElement('div');
-            confetti.style.cssText = `
-                position: fixed;
-                top: -10px;
-                left: ${Math.random() * 100}%;
-                width: 8px;
-                height: 8px;
-                background: ${confettiColors[Math.floor(Math.random() * confettiColors.length)]};
-                animation: confettiFall ${2 + Math.random() * 3}s linear forwards;
-                z-index: 1000;
-                border-radius: 50%;
-            `;
+        try {
+            if (this.elements.message) {
+                this.elements.message.innerHTML = `
+                    <p style="color: #6c757d; font-weight: 600;">
+                        Thank you for joining AWS Student Community Day 2025! 
+                    </p>
+                `;
+            }
             
-            document.body.appendChild(confetti);
-            
-            setTimeout(() => {
-                if (confetti.parentNode) {
-                    confetti.parentNode.removeChild(confetti);
-                }
-            }, 5000);
-        }
-        
-        // Add confetti animation
-        if (!document.getElementById('confetti-style')) {
-            const style = document.createElement('style');
-            style.id = 'confetti-style';
-            style.textContent = `
-                @keyframes confettiFall {
-                    0% {
-                        transform: translateY(-10px) rotate(0deg);
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: translateY(100vh) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
+            if (this.elements.section) {
+                this.elements.section.classList.add('event-ended');
+            }
+        } catch (error) {
+            console.warn('Event ended message error:', error);
         }
     }
     
@@ -609,39 +533,110 @@ class CountdownTimer {
     }
     
     startTimer() {
+        if (this.isDestroyed) return;
+        
         // Update immediately
         this.updateCountdown();
         
-        // Then update every second
+        // Then update every second with error handling
         this.interval = setInterval(() => {
+            if (this.isDestroyed) {
+                clearInterval(this.interval);
+                return;
+            }
             this.updateCountdown();
         }, 1000);
     }
     
     destroy() {
+        this.isDestroyed = true;
         if (this.interval) {
             clearInterval(this.interval);
+            this.interval = null;
         }
     }
 }
 
-// Initialize countdown timer when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const countdown = new CountdownTimer();
-    
-    // Store countdown instance globally for debugging
-    window.countdownTimer = countdown;
-    
-    // Handle window resize for responsive circumference
-    window.addEventListener('resize', () => {
-        if (window.countdownTimer) {
-            window.countdownTimer.circumference = window.countdownTimer.getCircumference();
-            window.countdownTimer.initProgressRings();
-        }
-    });
+// Mobile-Optimized Initialization
+let countdownTimer;
+let initializationInProgress = false;
 
-    // Initialize simple animations
+// Safe initialization with mobile optimization
+function initializeCountdown() {
+    if (initializationInProgress) return;
+    initializationInProgress = true;
+    
+    try {
+        // Clean up existing timer
+        if (countdownTimer) {
+            countdownTimer.destroy();
+            countdownTimer = null;
+        }
+        
+        // Wait for DOM to be fully ready
+        setTimeout(() => {
+            countdownTimer = new CountdownTimer();
+            window.countdownTimer = countdownTimer; // For debugging
+            initializationInProgress = false;
+        }, 100);
+    } catch (error) {
+        console.error('Countdown initialization failed:', error);
+        initializationInProgress = false;
+    }
+}
+
+// Optimized resize handler with debouncing
+let resizeTimeout;
+function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (countdownTimer && !countdownTimer.isDestroyed) {
+            countdownTimer.circumference = countdownTimer.getCircumference();
+            countdownTimer.initProgressRings();
+        }
+    }, 150); // Debounced resize
+}
+
+// Initialize countdown when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile performance optimization
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Delay initialization on mobile for better performance
+        setTimeout(initializeCountdown, 300);
+    } else {
+        initializeCountdown();
+    }
+    
+    // Initialize other components
     initSimpleAnimations();
+});
+
+// Optimized resize listener
+window.addEventListener('resize', handleResize);
+
+// Page visibility optimization - Modified to prevent reload conflicts
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        console.log('Tab hidden - preserving countdown timer');
+        // Keep timer running but at reduced frequency to save resources
+        // Don't destroy timer to prevent reload issues
+    } else {
+        console.log('Tab visible - countdown timer active');
+        // Timer continues normally
+        if (!countdownTimer || countdownTimer.isDestroyed) {
+            setTimeout(initializeCountdown, 100);
+        }
+    }
+});
+
+// Memory cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (countdownTimer) {
+        countdownTimer.destroy();
+        countdownTimer = null;
+    }
 });
 
 // Simple scroll animations for Why Attend section
@@ -754,17 +749,6 @@ function initSpeakerCardEffects() {
 // Initialize speaker card effects when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
     initSpeakerCardEffects();
-});
-
-// Add visibility change listener to pause/resume timer when tab is not visible
-document.addEventListener('visibilitychange', () => {
-    if (window.countdownTimer) {
-        if (document.hidden) {
-            window.countdownTimer.destroy();
-        } else {
-            window.countdownTimer = new CountdownTimer();
-        }
-    }
 });
 
 // Professional Speaker Card Interactions
@@ -1002,7 +986,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Initialize all functionalities
-    createCountdown(); // Initialize countdown timer
+    // createCountdown(); // Removed - using CountdownTimer class instead
     initSpeakerCardEffects();
     initProfessionalLoadingSequence();
     initFAQAccordion();
@@ -1044,53 +1028,17 @@ function initFAQAccordion() {
     });
 }
 
-// Perfect Auto-Sliding Gallery for Previous Event Section
-let currentGallerySlideIndex = 0;
-let galleryInterval;
-
-function initPerfectAutoGallery() {
+// Static Gallery for Previous Event Section (Auto-slide removed to prevent mobile conflicts)
+function initStaticGallery() {
     const slides = document.querySelectorAll('.gallery-slide');
     
     if (slides.length === 0) return;
     
-    // Start with first slide active
+    // Start with first slide active only
     slides[0].classList.add('active');
     
-    function nextSlide() {
-        // Remove active class from current slide
-        slides[currentGallerySlideIndex].classList.remove('active');
-        
-        // Move to next slide
-        currentGallerySlideIndex = (currentGallerySlideIndex + 1) % slides.length;
-        
-        // Add active class to new slide with smooth transition
-        setTimeout(() => {
-            slides[currentGallerySlideIndex].classList.add('active');
-        }, 50);
-    }
-    
-    // Auto-advance slides every 4 seconds
-    galleryInterval = setInterval(nextSlide, 4000);
-    
-    // Pause on hover for better user experience
-    const galleryContainer = document.querySelector('.gallery-container');
-    if (galleryContainer) {
-        galleryContainer.addEventListener('mouseenter', () => {
-            clearInterval(galleryInterval);
-        });
-        
-        galleryContainer.addEventListener('mouseleave', () => {
-            galleryInterval = setInterval(nextSlide, 4000);
-        });
-    }
+    // Manual navigation only (no auto-slide to prevent mobile issues)
+    console.log('Static gallery initialized with', slides.length, 'slides');
 }
 
-// Initialize perfect auto gallery when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Wait for images to load before starting gallery
-    window.addEventListener('load', () => {
-        setTimeout(initPerfectAutoGallery, 1000);
-    });
-});
-
-console.log('AWS Community Day 2025 - Perfect Auto Gallery Loaded! 🎯');
+console.log('AWS Community Day 2025 - Mobile-Optimized Script Loaded! 🚀 (Auto-slide disabled for stability)');
