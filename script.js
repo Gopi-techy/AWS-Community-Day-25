@@ -152,7 +152,7 @@ function createCountdown() {
     
     if (!daysElement) return; // Exit if countdown elements don't exist
     
-    const eventDate = new Date('2025-09-13T08:00:00+05:30'); // September 13, 2025 at 8:00 AM IST
+    const eventDate = new Date('2025-09-20T08:00:00+05:30'); // September 20, 2025 at 8:00 AM IST
     
     function updateCountdown() {
         const now = new Date().getTime();
@@ -394,8 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Countdown Timer Functionality
 class CountdownTimer {
     constructor() {
-        // Event date: September 13, 2025 at 8:00 AM IST
-        this.eventDate = new Date('2025-09-13T08:00:00+05:30');
+        // Event date: September 20, 2025 at 8:00 AM IST
+        this.eventDate = new Date('2025-09-20T08:00:00+05:30');
         this.elements = {
             days: document.getElementById('days'),
             hours: document.getElementById('hours'),
