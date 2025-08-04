@@ -990,6 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpeakerCardEffects();
     initProfessionalLoadingSequence();
     initFAQAccordion();
+    initEventGallery(); // Initialize the gallery slideshow
     
     // Initialize navbar scroll highlighting
     activeNavHandler();
@@ -1028,17 +1029,111 @@ function initFAQAccordion() {
     });
 }
 
+// Previous Event Gallery Slideshow with proper timing and navigation
+function initEventGallery() {
+    console.log('Initializing gallery...');
+    
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    
+    console.log('Found', slides.length, 'slides and', dots.length, 'dots');
+    
+    if (slides.length === 0) {
+        console.log('No slides found, exiting...');
+        return;
+    }
+    
+    let currentSlide = 0;
+    let slideInterval;
+    
+    // Function to show a specific slide
+    function showSlide(index) {
+        console.log('Showing slide', index);
+        
+        // Hide all slides and deactivate all dots
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (dots[i]) {
+                dots[i].classList.remove('active');
+            }
+        });
+        
+        // Show current slide and activate current dot
+        slides[index].classList.add('active');
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+    
+    // Function to go to next slide
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+    
+    // Start slideshow
+    function startSlideshow() {
+        console.log('Starting slideshow...');
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4000); // 4 seconds
+    }
+    
+    // Stop slideshow
+    function stopSlideshow() {
+        console.log('Stopping slideshow...');
+        if (slideInterval) {
+            clearInterval(slideInterval);
+        }
+    }
+    
+    // Initialize - show first slide
+    showSlide(0);
+    
+    // Add click handlers to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            console.log('Dot clicked:', index);
+            stopSlideshow();
+            showSlide(index);
+            // Restart after a delay
+            setTimeout(startSlideshow, 3000);
+        });
+    });
+    
+    // Add hover pause functionality
+    const galleryContainer = document.querySelector('.gallery-container');
+    if (galleryContainer) {
+        galleryContainer.addEventListener('mouseenter', () => {
+            console.log('Gallery hover - pausing slideshow');
+            stopSlideshow();
+        });
+        
+        galleryContainer.addEventListener('mouseleave', () => {
+            console.log('Gallery unhover - resuming slideshow');
+            startSlideshow();
+        });
+    }
+    
+    // Start the slideshow
+    startSlideshow();
+    
+    console.log('Gallery initialization completed!');
+}
+
 // Static Gallery for Previous Event Section (Auto-slide removed to prevent mobile conflicts)
 function initStaticGallery() {
-    const slides = document.querySelectorAll('.gallery-slide');
-    
-    if (slides.length === 0) return;
-    
-    // Start with first slide active only
-    slides[0].classList.add('active');
-    
-    // Manual navigation only (no auto-slide to prevent mobile issues)
-    console.log('Static gallery initialized with', slides.length, 'slides');
+    // This function is now replaced by initEventGallery
+    initEventGallery();
 }
 
 console.log('AWS Community Day 2025 - Mobile-Optimized Script Loaded! 🚀 (Auto-slide disabled for stability)');
+
+// Ensure gallery starts after everything is loaded
+window.addEventListener('load', () => {
+    console.log('Window fully loaded, initializing gallery again as backup...');
+    setTimeout(() => {
+        initEventGallery();
+    }, 1000);
+});
