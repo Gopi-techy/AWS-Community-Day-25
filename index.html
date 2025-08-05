@@ -654,10 +654,6 @@
                                 <div class="session-time">2:50-3:30 PM</div>
                                 <div class="session-title">Session 5</div>
                             </div>
-                            <div class="session-item">
-                                <div class="session-time">3:30-4:10 PM</div>
-                                <div class="session-title">Session 6</div>
-                            </div>
 
                         </div>
                     </div>
@@ -692,10 +688,6 @@
                             <div class="session-item">
                                 <div class="session-time">2:50-3:30 PM</div>
                                 <div class="session-title">Session 5</div>
-                            </div>
-                            <div class="session-item">
-                                <div class="session-time">3:30-4:10 PM</div>
-                                <div class="session-title">Session 6</div>
                             </div>
 
                         </div>
@@ -732,10 +724,6 @@
                                 <div class="session-time">2:50-3:30 PM</div>
                                 <div class="session-title">Session 5</div>
                             </div>
-                            <div class="session-item">
-                                <div class="session-time">3:30-4:10 PM</div>
-                                <div class="session-title">Session 6</div>
-                            </div>
 
                         </div>
                     </div>
@@ -746,9 +734,16 @@
 
                 <div class="common-agenda">
                     <div class="agenda-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="agenda-time">3:30-4:10 PM</div>
+                        <div class="agenda-content">
+                            <h4>Panel Discussion 1</h4>
+                            <p>Insights from industry experts</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="agenda-time">4:10-4:50 PM</div>
                         <div class="agenda-content">
-                            <h4>Panel Discussion</h4>
+                            <h4>Panel Discussion 2</h4>
                             <p>Insights from industry experts</p>
                         </div>
                     </div>
@@ -1781,7 +1776,7 @@
                             <i class="fas fa-microphone"></i>
                             Apply to Speak
                         </button>
-                        <p class="note-text">Application form will be available soon. Stay tuned!</p>
+                       
                     </div>
                 </div>
             </div>
@@ -1802,68 +1797,153 @@
                     </p>
 
                     <!-- Sponsorship Benefits Table -->
-                    <div class="sponsorship-benefits-table">
+                    <div class="sponsorship-benefits-cards">
                         <h3>Sponsorship Packages & Benefits</h3>
-                        <div class="benefits-table-container">
-                            <table class="benefits-table">
-                                <thead>
-                                    <tr>
-                                        <th>Benefits</th>
-                                        <th class="platinum-tier">Platinum</th>
-                                        <th class="gold-tier">Gold</th>
-                                        <th class="silver-tier">Silver</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="benefit-name">Tickets</td>
-                                        <td class="platinum-cell">20</td>
-                                        <td class="gold-cell">15</td>
-                                        <td class="silver-cell">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="benefit-name">Stalls</td>
-                                        <td class="platinum-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="gold-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="silver-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="benefit-name">Goodies Logo Featuring</td>
-                                        <td class="platinum-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="gold-cell"><i class="fas fa-times text-danger"></i> No</td>
-                                        <td class="silver-cell"><i class="fas fa-times text-danger"></i> No</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="benefit-name">Streaming 30 sec video in between the event</td>
-                                        <td class="platinum-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="gold-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="silver-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="benefit-name">LinkedIn Promotion</td>
-                                        <td class="platinum-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="gold-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="silver-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="benefit-name">Special Mention in session opening</td>
-                                        <td class="platinum-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="gold-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                        <td class="silver-cell"><i class="fas fa-check text-success"></i> Yes</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        
+                        <!-- Benefits Comparison Table -->
+                        <div class="benefits-table">
+                            <!-- Table Header -->
+                            <div class="benefits-header">
+                                <div class="benefit-column header-column">
+                                    <h4>Benefits</h4>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <div class="tier-header platinum">
+                                        <i class="fas fa-crown"></i>
+                                        <span>Platinum</span>
+                                    </div>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <div class="tier-header gold">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Gold</span>
+                                    </div>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <div class="tier-header silver">
+                                        <i class="fas fa-award"></i>
+                                        <span>Silver</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Benefits Rows -->
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">Tickets</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <span class="benefit-value">20</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <span class="benefit-value">15</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <span class="benefit-value">10</span>
+                                </div>
+                            </div>
+
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">Stalls</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                            </div>
+
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">Goodies Logo Featuring</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-times no"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-times no"></i>
+                                </div>
+                            </div>
+
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">Streaming 30 sec video in between the event</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-times no"></i>
+                                </div>
+                            </div>
+
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">LinkedIn Promotion</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                            </div>
+
+                            <div class="benefits-row">
+                                <div class="benefit-column header-column">
+                                    <span class="benefit-label">Special Mention in session opening</span>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <i class="fas fa-check yes"></i>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons Row -->
+                            <div class="benefits-actions">
+                                <div class="benefit-column header-column">
+                                    <!-- Empty space for alignment -->
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <button class="sponsor-register-btn platinum-btn">
+                                        <i class="fas fa-crown"></i>
+                                        Choose Platinum
+                                    </button>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <button class="sponsor-register-btn gold-btn">
+                                        <i class="fas fa-medal"></i>
+                                        Choose Gold
+                                    </button>
+                                </div>
+                                <div class="benefit-column tier-column">
+                                    <button class="sponsor-register-btn silver-btn">
+                                        <i class="fas fa-award"></i>
+                                        Choose Silver
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="call-sponsors-cta">
-                    <button type="button" class="btn btn-primary become-sponsor-btn"
-                        onclick="window.open('#', '_blank')">
-                        <i class="fas fa-handshake"></i>
-                        Become a Sponsor
-                    </button>
-                    <p class="note-text">Contact us for sponsorship packages and opportunities</p>
                 </div>
             </div>
         </div>
@@ -2012,7 +2092,7 @@
                 <!-- First Row -->
                 <div class="core-member-card">
                     <div class="core-member-image">
-                        <img src="images/pranav2.jpg .jpg" alt="Pranav Karunakaran">
+                        <img src="images/Pranav_Karunakaran_Event_Manager.jpg" alt="Pranav Karunakaran">
                     </div>
                     <div class="core-member-info">
                         <h3>Pranav Karunakaran</h3>
