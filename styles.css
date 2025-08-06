@@ -9345,3 +9345,112 @@ body>*:last-child {
         transform: translateY(0);
     }
 }
+
+/* Mobile-specific styles for sponsor benefits table */
+@media (max-width: 600px) {
+  .benefits-table {
+    display: table !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+    margin: 0 !important;
+  }
+  
+  .benefits-row {
+    display: table-row !important;
+    background: #fff !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  
+  .benefit-column {
+    display: table-cell !important;
+    border: 1px solid #e0e0e0 !important;
+    padding: 0.8rem 0.5rem !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    min-width: 80px !important;
+  }
+  
+  .benefit-column:not(:first-child) {
+    margin-top: 0 !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  .header-column {
+    background: #f8f9fa !important;
+    font-weight: 600 !important;
+    color: #232F3E !important;
+    min-width: 120px !important;
+  }
+  
+  .benefit-label {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #232F3E !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .benefit-value {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #FF9900 !important;
+  }
+  
+  .tier-header {
+    display: block !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    color: #FF9900 !important;
+    margin-bottom: 0.2rem !important;
+  }
+  
+  .benefits-header {
+    display: table-row !important;
+  }
+  
+  .benefits-actions {
+    display: table-row !important;
+    gap: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .benefits-actions .benefit-column {
+    background: #fff !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    padding: 0.8rem 0.5rem !important;
+  }
+  
+  .sponsor-register-btn {
+    width: auto !important;
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: 6px !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap !important;
+  }
+  
+  .yes {
+    color: #27ae60 !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .no {
+    color: #e74c3c !important;
+    font-size: 1.1rem !important;
+  }
+  
+  /* Remove the data-tier pseudo-elements since we're keeping the table structure */
+  .benefit-column[data-tier]::before {
+    content: none !important;
+  }
+}
