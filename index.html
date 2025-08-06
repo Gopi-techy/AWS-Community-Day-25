@@ -45,14 +45,14 @@
                     <li class="nav-item">
                         <a href="#speakers" class="nav-link">Speakers</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#schedule" class="nav-link">Schedule</a>
+                    </li>
                     <!-- <li class="nav-item">
                         <a href="#sponsors" class="nav-link">Sponsors</a>
                     </li> -->
                     <li class="nav-item">
                         <a href="#organizers" class="nav-link">Organizers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#schedule" class="nav-link">Schedule</a>
                     </li>
                 </ul>
                 <div class="hamburger">
@@ -179,7 +179,7 @@
     <section id="previous-event" class="previous-event">
         <div class="container">
             <div class="section-header">
-                <h2 class="previous-event-heading-orange">Our Successful AWS Student Community Day 2024</h2>
+                <h2>Our Successful AWS Student Community Day 2024</h2>
                 <p>Building on our proven track record of excellence in cloud community events</p>
             </div>
 
@@ -259,12 +259,6 @@
                             <img src="images/cc6.jpeg" alt="AWS Student Community Day 2024 - Technical Sessions">
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/cc7.jpeg" alt="AWS Student Community Day 2024 - Attendees">
-                        </div>
-                        <div class="gallery-slide">
-                            <img src="images/cc8.jpeg" alt="AWS Student Community Day 2024 - Award Ceremony">
-                        </div>
-                        <div class="gallery-slide">
                             <img src="images/cc9.jpeg" alt="AWS Student Community Day 2024 - Team Photo">
                         </div>
                         <div class="gallery-slide">
@@ -281,8 +275,6 @@
                             <button class="gallery-dot" data-slide="5"></button>
                             <button class="gallery-dot" data-slide="6"></button>
                             <button class="gallery-dot" data-slide="7"></button>
-                            <button class="gallery-dot" data-slide="8"></button>
-                            <button class="gallery-dot" data-slide="9"></button>
                         </div>
                     </div>
                 </div>
@@ -540,13 +532,205 @@
                 <p>Amazing AWS experts, industry leaders, and student mentors are joining us</p>
             </div>
 
-            <!-- Coming Soon -->
-            <div class="simple-coming-soon" data-aos="fade-up" data-aos-delay="100">
-                <div class="coming-soon-icon">
-                    <i class="fas fa-microphone-alt"></i>
+            <!-- Confirmed Speakers -->
+            <div class="speakers-grid">
+                <!-- Speaker 1: Sarah Chen - AWS Solutions Architect -->
+                <div class="speaker-card keynote-speaker" data-aos="fade-up" data-aos-delay="100">
+                    <div class="keynote-badge">
+                        <i class="fas fa-crown"></i>
+                        Keynote Speaker
+                    </div>
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Sarah Chen">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">AWS Solutions Architect with 8+ years experience</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Sarah Chen</h3>
+                                <p class="speaker-title">Senior AWS Solutions Architect</p>
+                                <p class="speaker-topic">Serverless Architecture Patterns</p>
+                                <div class="speaker-social">
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <button class="know-more-btn" onclick="flipCard(this)">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Sarah Chen</h3>
+                                <p class="speaker-experience">8+ years in cloud architecture</p>
+                                <div class="speaker-description">
+                                    <p>Sarah is a seasoned AWS Solutions Architect specializing in serverless technologies. She has designed and implemented scalable cloud solutions for Fortune 500 companies.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">AWS Lambda</span>
+                                        <span class="expertise-tag">API Gateway</span>
+                                        <span class="expertise-tag">DynamoDB</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3>Coming Soon</h3>
-                <p>Speaker lineup will be announced shortly</p>
+
+                <!-- Speaker 2: Marcus Rodriguez - DevOps Engineer -->
+                <div class="speaker-card keynote-speaker" data-aos="fade-up" data-aos-delay="200">
+                    <div class="keynote-badge">
+                        <i class="fas fa-crown"></i>
+                        Keynote Speaker
+                    </div>
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Marcus Rodriguez">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">DevOps specialist and AWS certified professional</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Marcus Rodriguez</h3>
+                                <p class="speaker-title">Principal DevOps Engineer</p>
+                                <p class="speaker-topic">CI/CD with AWS CodePipeline</p>
+                                <div class="speaker-social">
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <button class="know-more-btn" onclick="flipCard(this)">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Marcus Rodriguez</h3>
+                                <p class="speaker-experience">6+ years in DevOps</p>
+                                <div class="speaker-description">
+                                    <p>Marcus is a DevOps expert with extensive experience in AWS CI/CD pipelines. He has helped teams achieve 90% faster deployment cycles and zero-downtime deployments.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">CodePipeline</span>
+                                        <span class="expertise-tag">Docker</span>
+                                        <span class="expertise-tag">Kubernetes</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 3: Dr. Emily Watson - ML Research Scientist -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" alt="Dr. Emily Watson">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">ML researcher and AWS Machine Learning Hero</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Dr. Emily Watson</h3>
+                                <p class="speaker-title">ML Research Scientist</p>
+                                <p class="speaker-topic">AI/ML on AWS</p>
+                                <div class="speaker-social">
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <button class="know-more-btn" onclick="flipCard(this)">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Dr. Emily Watson</h3>
+                                <p class="speaker-experience">10+ years in ML research</p>
+                                <div class="speaker-description">
+                                    <p>Dr. Watson is a leading ML researcher and AWS Machine Learning Hero. She specializes in developing cutting-edge AI solutions and has published numerous papers on machine learning algorithms.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">SageMaker</span>
+                                        <span class="expertise-tag">TensorFlow</span>
+                                        <span class="expertise-tag">Deep Learning</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 4: Alex Johnson - Cloud Security Architect -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face" alt="Alex Johnson">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Cloud security expert with enterprise experience</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Alex Johnson</h3>
+                                <p class="speaker-title">Cloud Security Architect</p>
+                                <p class="speaker-topic">Securing Your AWS Infrastructure</p>
+                                <div class="speaker-social">
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <button class="know-more-btn" onclick="flipCard(this)">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Alex Johnson</h3>
+                                <p class="speaker-experience">12+ years in cloud security</p>
+                                <div class="speaker-description">
+                                    <p>Alex is a cloud security expert with extensive experience in securing enterprise AWS infrastructures. He has helped organizations implement robust security frameworks and compliance standards.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">IAM</span>
+                                        <span class="expertise-tag">GuardDuty</span>
+                                        <span class="expertise-tag">CloudTrail</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 5: Priya Patel - VP of Engineering -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" alt="Priya Patel">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Tech industry veteran and career mentor</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Priya Patel</h3>
+                                <p class="speaker-title">VP of Engineering</p>
+                                <p class="speaker-topic">Building Your Cloud Career</p>
+                                <div class="speaker-social">
+                                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <button class="know-more-btn" onclick="flipCard(this)">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Priya Patel</h3>
+                                <p class="speaker-experience">15+ years in tech leadership</p>
+                                <div class="speaker-description">
+                                    <p>Priya is a tech industry veteran and VP of Engineering with extensive experience in building and leading high-performing engineering teams. She's passionate about mentoring and career development.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Leadership</span>
+                                        <span class="expertise-tag">Mentoring</span>
+                                        <span class="expertise-tag">Career Growth</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1797,9 +1981,8 @@
                     </p>
 
                     <!-- Sponsorship Benefits Table -->
-                    <div class="sponsorship-benefits-cards">
+                    <div class="call-sponsors-subtitle">
                         <h3>Sponsorship Packages & Benefits</h3>
-                        
                         <!-- Benefits Comparison Table -->
                         <div class="benefits-table">
                             <!-- Table Header -->
@@ -2029,7 +2212,7 @@
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/drkarthim/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
-                            <a href="#" title="AWS Community"><i class="fab fa-aws"></i></a>
+                            <a href="mailto:kar" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2050,7 +2233,7 @@
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/dhyanasuresh19/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
-                            <a href="#" title="AWS Community"><i class="fab fa-aws"></i></a>
+                            <a href="mailto:dhyanasuresh19@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2071,7 +2254,7 @@
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/mohana-priya-s-452b6225a/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
-                            <a href="#" title="AWS Community"><i class="fab fa-aws"></i></a>
+                            <a href="mailto:mohanapriyas1808@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2349,26 +2532,81 @@
             <div class="faq-container">
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="faq-question">
-                        <h4>Are accommodations available?</h4>
+                        <h4>Who can attend the event?</h4>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, but accommodations are offered only for the student participants at our College hostel.
-                            For more queries regarding hostel accommodations contact, Raja: +91 96290 25824</p>
+                        <p>The event is open to:</p>
+                        <ul>
+                            <li>Students (Undergraduate, Postgraduate)</li>
+                            <li>Faculty members</li>
+                            <li>Industry professionals</li>
+                            <li>Startup founders</li>
+                            <li>Tech enthusiasts</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="faq-question">
-                        <h4>Are the meals offered at free of cost?</h4>
+                        <h4>Do I need to pay to attend?</h4>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Certainly, the food served is complimentary, along with the snacks and refreshments.</p>
+                        <p>Yes. There are various ticket categories:</p>
+                        <ul>
+                            <li>Early Bird – Student Pass</li>
+                            <li>Student Regular Pass</li>
+                            <li>Industry Professional Passes</li>
+                            <li>Group Passes</li>
+                        </ul>
+                        <p>All tickets include full-day access, food/snacks, goodies, and entry to all sessions and networking activities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h4>Will I get a certificate for attending?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>E-certificates will be provided. This event focuses on real-time interaction, learning, and networking value.</p>
                     </div>
                 </div>
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <h4>Is food provided at the event?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all passes include lunch, snacks, and refreshments throughout the day.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <h4>Can I attend if I'm from a different college/university?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Students from any institution can participate. It's an open event.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="faq-question">
+                        <h4>Are accommodations available?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, but accommodations are offered only for the student participants at our College hostel.
+                            For more queries regarding hostel accommodations contact, Dhyana: +91 6374872133</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="800">
                     <div class="faq-question">
                         <h4>Will Goodies be provided for the participants?</h4>
                         <i class="fas fa-chevron-down"></i>
@@ -2378,18 +2616,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="faq-question">
-                        <h4>Will I receive a certificate of participation?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all participants will receive a certificate of participation upon completion of the
-                            event.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="900">
                     <div class="faq-question">
                         <h4>Are there any hotels nearby?</h4>
                         <i class="fas fa-chevron-down"></i>
@@ -2412,7 +2639,7 @@
                     <h3>Still have questions?</h3>
                     <p>Our team is here to help! Reach out to us for any additional queries.</p>
                     <div class="contact-buttons">
-                        <a href="mailto:info@awscommunity.dev" class="btn btn-primary">
+                        <a href="mailto:cloudclub@stjosephs.ac.in" class="btn btn-primary">
                             <i class="fas fa-envelope"></i>
                             Email Us
                         </a>

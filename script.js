@@ -15,13 +15,24 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links with improved schedule handling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            // Special handling for schedule section
+            const targetId = this.getAttribute('href').substring(1);
+            let offsetTop;
+            
+            if (targetId === 'schedule') {
+                // For schedule, use a larger offset to account for its new position
+                offsetTop = target.offsetTop - 100;
+            } else {
+                // Standard offset for other sections
+                offsetTop = target.offsetTop - 70;
+            }
+            
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -66,7 +77,14 @@ const activeNavHandler = () => {
         
         // Check each section to find which one is most prominent in viewport
         sections.forEach((section, index) => {
-            const sectionTop = section.element.offsetTop - navbarHeight - 20;
+            let sectionTop;
+            
+            // Special handling for schedule section positioning
+            if (section.id === 'schedule') {
+                sectionTop = section.element.offsetTop - navbarHeight - 50;
+            } else {
+                sectionTop = section.element.offsetTop - navbarHeight - 20;
+            }
             
             if (scrollPosition >= sectionTop - 50) {
                 if (index === sections.length - 1 || scrollPosition < sections[index + 1].element.offsetTop - navbarHeight - 20) {
@@ -110,13 +128,22 @@ window.addEventListener('resize', () => {
     scrollTimeout = setTimeout(activeNavHandler, 200);
 });
 
-// Initialize navbar highlighting when ready
+// Function to recalculate section positions (useful after dynamic content changes)
+function recalculateNavPositions() {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(activeNavHandler, 100);
+}
+
+// Expose function globally for manual recalculation if needed
+window.recalculateNavPositions = recalculateNavPositions;
+
+// Initialize navbar highlighting when ready with extended delay for layout
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(activeNavHandler, 200);
+        setTimeout(activeNavHandler, 500); // Increased delay for layout stability
     });
 } else {
-    setTimeout(activeNavHandler, 200);
+    setTimeout(activeNavHandler, 500); // Increased delay for layout stability
 }
 
 // Optimized scroll handlers with mobile performance in mind
@@ -992,8 +1019,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQAccordion();
     initEventGallery(); // Initialize the gallery slideshow
     
-    // Initialize navbar scroll highlighting
-    activeNavHandler();
+    // Re-initialize navbar scroll highlighting after all content is loaded
+    setTimeout(() => {
+        activeNavHandler();
+        recalculateNavPositions();
+    }, 1000); // Extra delay to ensure all sections are positioned correctly
 });
 
 // Speaker Card Flip Functionality
