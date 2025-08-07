@@ -295,7 +295,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Amazon Ember', 'Inter', sans-serif;
     line-height: 1.6;
     color: #333;
     overflow-x: hidden;
@@ -724,7 +724,7 @@ body {
     position: absolute;
     top: 85%;
     left: 15%;
-    font-family: 'Courier New', monospace;
+    font-family: 'Amazon Ember', 'Courier New', monospace;
     font-size: 0.9rem;
     color: rgba(255, 153, 0, 0.8);
     display: flex;
@@ -798,6 +798,35 @@ body {
         transform: rotate(360deg) translateX(30px) rotate(-360deg);
     }
 }
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Rg.woff2') format('woff2'),
+       url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Rg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Bd.woff2') format('woff2'),
+       url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Bd.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Lt.woff2') format('woff2'),
+       url('https://d1.awsstatic.com/webteam/fonts/AmazonEmber_Lt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+body, html {
+  font-family: 'Amazon Ember', 'Inter', Arial, Helvetica, sans-serif !important;
+}
+
 @keyframes morphShape {
 
     0%,
@@ -2312,7 +2341,7 @@ body {
     font-size: 4rem;
     color: #FF9900;
     opacity: 0.3;
-    font-family: Georgia, serif;
+    font-family: 'Amazon Ember', serif;
 }
 
 .testimonial-card:hover {
@@ -3948,7 +3977,6 @@ body {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
 }
-
 .sponsor-category-title::after {
     content: '';
     position: absolute;
@@ -5539,7 +5567,6 @@ body {
     justify-content: center;
     margin-bottom: 16px;
 }
-
 .expertise-tag {
     background: rgba(255, 153, 0, 0.1);
     color: #FF9900;
@@ -6339,7 +6366,6 @@ body {
     line-height: 1.5;
     margin: 0;
 }
-
 /* Tracks Container */
 .tracks-container {
     display: grid;
@@ -7136,7 +7162,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .footer::before {
     content: '';
     position: absolute;
