@@ -798,7 +798,6 @@ body {
         transform: rotate(360deg) translateX(30px) rotate(-360deg);
     }
 }
-
 @keyframes morphShape {
 
     0%,
@@ -1097,7 +1096,7 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     color: #FF9900;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 2px;
     background: linear-gradient(45deg, #FF9900, #FFAD33);
     -webkit-background-clip: text;
@@ -1590,7 +1589,6 @@ body {
         padding: 0 15px;
     }
 }
-
 @media (max-width: 480px) {
     .section-header {
         margin-bottom: 2.5rem;
@@ -2384,7 +2382,6 @@ body {
         transform: translateX(0);
     }
 }
-
 .slideshow-container {
     position: relative;
     max-width: 100%;
@@ -2892,7 +2889,7 @@ body {
     /* Reduced from 0.9rem */
     color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 0.8px;
     /* Reduced from 1px */
 }
@@ -3150,7 +3147,6 @@ body {
         border-radius: 25px;
     }
 }
-
 /* Countdown Timer - Mobile Responsive (480px and below) */
 @media (max-width: 480px) {
     .countdown {
@@ -3948,7 +3944,6 @@ body {
     margin-bottom: 2rem;
     position: relative;
 }
-
 .sponsor-category-title.small-title {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
@@ -4744,7 +4739,6 @@ body {
     width: 98%;
     padding: 0 20px;
 }
-
 .speaker-card {
     background: transparent;
     border-radius: 20px;
@@ -4824,7 +4818,7 @@ body {
     border-radius: 10px;
     font-size: 0.6rem;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 0.5px;
     z-index: 10;
     box-shadow: 0 2px 6px rgba(255, 153, 0, 0.3);
@@ -5538,7 +5532,6 @@ body {
     line-height: 1.5;
     margin-bottom: 16px;
 }
-
 .speaker-expertise {
     display: flex;
     flex-wrap: wrap;
@@ -6336,7 +6329,6 @@ body {
     margin-bottom: 0.5rem;
     transition: color 0.3s ease;
 }
-
 .agenda-item:hover .agenda-content h4 {
     color: #FF9900;
 }
@@ -7125,7 +7117,6 @@ body {
     background: #1e293b;
     color: white;
 }
-
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -7863,7 +7854,6 @@ border-radius: 50%;
         font-size: 1.8rem;
     }
 }
-
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -8653,7 +8643,6 @@ html {
 .call-sponsors-cta {
     margin-top: 2rem;
 }
-
 .become-sponsor-btn {
     background: linear-gradient(135deg, #FF9900 0%, #ffb84d 100%);
     color: white;
@@ -9432,7 +9421,6 @@ body>*:last-child {
     margin: 0 auto;
   }
 }
-
 @media (max-width: 480px) {
   .call-for-sponsors {
     padding: 50px 0;
