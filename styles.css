@@ -9231,6 +9231,7 @@ body>*:last-child {
     padding: 1rem 1.5rem;
     background: linear-gradient(135deg, #FF9900, #FFAD33);
     color: white;
+    text-decoration: none;
     border: none;
     border-radius: 50px;
     font-size: 1rem;
