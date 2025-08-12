@@ -7564,6 +7564,18 @@ border-radius: 50%;
     font-size: 0.9rem;
 }
 
+.designer-credit {
+    color: #FF9900 !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    opacity: 1 !important;
+    text-align: center;
+    margin-top: 0.5rem !important;
+    font-style: italic;
+    width: 100%;
+    display: block;
+}
+
 /* Responsive Footer */
 @media (max-width: 1024px) {
     .footer-content {
