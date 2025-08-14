@@ -4284,6 +4284,31 @@ body, html {
     margin-left: calc(-50vw + 50%);
 }
 
+/* Patrons Heading */
+.patrons-heading {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    padding: 0 20px;
+}
+
+.patrons-subheading {
+    color: #FF9900;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.patrons-description {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 .organizers .container {
     padding: 0 20px;
     max-width: 1200px;
@@ -4299,6 +4324,11 @@ body, html {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Special styling for patrons row to center the cards */
+.patrons-row {
+    justify-content: center;
 }
 
 .organizer-card {
@@ -4551,6 +4581,8 @@ body, html {
         font-size: 1rem;
     }
 }
+
+
 
 /* Speakers Section - Professional First-Class UI */
 .speakers {
