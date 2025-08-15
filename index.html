@@ -531,7 +531,7 @@
             </div>
 
             <!-- Confirmed Speakers -->
-            <div class="speakers-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div class="speakers-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1600px; margin: 0 auto; padding: 0 2rem;">
                 <style>
                     .speakers-grid .speaker-card {
                         min-height: 450px;
@@ -590,9 +590,14 @@
                             padding: 0 1rem !important;
                         }
                     }
-                    @media (max-width: 1024px) and (min-width: 769px) {
+                    @media (max-width: 1200px) and (min-width: 769px) {
                         .speakers-grid {
-                            grid-template-columns: repeat(2, 1fr) !important;
+                            grid-template-columns: repeat(3, 1fr) !important;
+                        }
+                    }
+                    @media (max-width: 1600px) and (min-width: 1201px) {
+                        .speakers-grid {
+                            grid-template-columns: repeat(4, 1fr) !important;
                         }
                     }
                 </style>
@@ -822,7 +827,7 @@
                     </div>
                 </div>
 
-                 <!-- Speaker 7: Ramya Natesan - AstraZeneca -->
+                 <!-- Speaker 7: Vinolin Jermiah - Trainocate Networks -->
                  <div class="speaker-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="keynote-badge">
                         <i class="fas fa-crown"></i>
@@ -831,7 +836,7 @@
                     <div class="speaker-card-inner">
                         <div class="speaker-front">
                             <div class="speaker-image">
-                                <img src="images/Vinolin Jermiah Photo - Vinolin Jermiah.jpg" alt="Manoj Kumar M Rajpurohit">
+                                <img src="images/Vinolin Jermiah Photo - Vinolin Jermiah.jpg" alt="Vinolin Jermiah">
                                 <div class="speaker-overlay">
                                     <div class="speaker-bio">Accelerate Cloud Development with Amazon Q CLI</div>
                                 </div>
@@ -847,21 +852,171 @@
                         </div>
                         <div class="speaker-back">
                             <div class="speaker-details">
-                                <h3>Ramya Natesan</h3>
-                                <p class="speaker-experience">Lead consultant @ AstraZeneca</p>
+                                <h3>Vinolin Jermiah</h3>
+                                <p class="speaker-experience">AWS Consultant & Corporate Trainer @ Trainocate Networks</p>
                                 <div class="speaker-description">
-                                    <p>Ramya is a Lead consultant at AstraZeneca with expertise in designing and implementing data pipelines using Generative AI technologies on AWS platforms.</p>
+                                    <p>Vinolin is an AWS Consultant and Corporate Trainer at Trainocate Networks, specializing in cloud development acceleration and Amazon Q CLI implementation.</p>
                                     <div class="speaker-expertise">
-                                        <span class="expertise-tag">GenAI</span>
-                                        <span class="expertise-tag">Data Pipelines</span>
-                                        <span class="expertise-tag">AWS Analytics</span>
+                                        <span class="expertise-tag">Amazon Q CLI</span>
+                                        <span class="expertise-tag">Cloud Development</span>
+                                        <span class="expertise-tag">AWS Training</span>
                                     </div>
                                 </div>
                                 <button class="back-btn" onclick="flipCard(this)">Back</button>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Speaker 8: Aadhityaa SB - EY -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/aadhi.jpeg" alt="Aadhityaa SB">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Build Structured AI Agent Systems with AWS Strands SDK</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Aadhityaa SB</h3>
+                                <p class="speaker-title">EY</p>
+                                <p class="speaker-topic">AI Developer</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/aadhi0612/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Aadhityaa SB</h3>
+                                <p class="speaker-experience">AI Developer @ EY</p>
+                                <div class="speaker-description">
+                                    <p>Aadhityaa is an AI Developer at EY, specializing in building structured AI agent systems using AWS Strands SDK and implementing enterprise AI solutions.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">AI Agents</span>
+                                        <span class="expertise-tag">AWS Strands SDK</span>
+                                        <span class="expertise-tag">Enterprise AI</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Speaker 9: Sujoy Roy - Solventum -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/sujoy.jpeg" alt="Sujoy Roy">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Serverless 101: The What, Why, and How of FaaS</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Sujoy Roy</h3>
+                                <p class="speaker-title">Solventum</p>
+                                <p class="speaker-topic">Senior Cloud Engineering Manager</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/sujoys/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Sujoy Roy</h3>
+                                <p class="speaker-experience">Senior Cloud Engineering Manager @ Solventum</p>
+                                <div class="speaker-description">
+                                    <p>Sujoy is a Senior Cloud Engineering Manager at Solventum with extensive experience in serverless architectures and Function as a Service (FaaS) implementations.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Serverless</span>
+                                        <span class="expertise-tag">FaaS</span>
+                                        <span class="expertise-tag">Cloud Engineering</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 10: Manish Jhanwar -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="900">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/manish.jpeg" alt="Manish Jhanwar">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Software Engineering Core in the World of AI & Cloud</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Manish Jhanwar</h3>
+                                <p class="speaker-title">Architect</p>
+                                <p class="speaker-topic">Software Engineering Core</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/manish-jhanwar" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Manish Jhanwar</h3>
+                                <p class="speaker-experience">Architect - Software Engineering Core</p>
+                                <div class="speaker-description">
+                                    <p>Manish is an Architect specializing in software engineering core principles and their application in the modern world of AI and cloud technologies.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Software Engineering</span>
+                                        <span class="expertise-tag">AI Integration</span>
+                                        <span class="expertise-tag">Cloud Architecture</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 11: Omshree Butani - Accenture -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/omhsree.jpeg" alt="Omshree Butani">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Kiro - More than just an Agentic IDE!</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Omshree Butani</h3>
+                                <p class="speaker-title">Accenture</p>
+                                <p class="speaker-topic">Cloud FinOps Engineer</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/omshree-butani/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Omshree Butani</h3>
+                                <p class="speaker-experience">Cloud FinOps Engineer @ Accenture</p>
+                                <div class="speaker-description">
+                                    <p>Omshree is a Cloud FinOps Engineer at Accenture, specializing in financial operations for cloud environments and agentic IDE technologies like Kiro.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">FinOps</span>
+                                        <span class="expertise-tag">Agentic IDE</span>
+                                        <span class="expertise-tag">Cloud Optimization</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
@@ -2406,8 +2561,8 @@
                     </div>
                     <div class="organizer-info">
                         <h3>Raghul Gopal</h3>
-                        <p class="organizer-title">Patron</p>
-                        <p class="organizer-institution">AWS Student Community</p>
+                        <p class="organizer-title">AWS Community Builder</p>
+                        <!-- <p class="organizer-institution">AWS Community Builder</p> -->
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/raghulgopaltech/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
@@ -2425,8 +2580,8 @@
                     </div>
                     <div class="organizer-info">
                         <h3>Jeevitha</h3>
-                        <p class="organizer-title">Patron</p>
-                        <p class="organizer-institution">AWS Student Community</p>
+                        <p class="organizer-title">AWS Community Builder</p>
+                        <!-- <p class="organizer-institution">AWS Community Builder</p> -->
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/jeevitha-m-357979223/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
@@ -2823,7 +2978,7 @@
                             Email Us
                         </a>
                         <a href="https://www.linkedin.com/company/aws-cloud-club-stjosephs/?viewAsMember=true"
-                            class="btn btn-secondary">
+                            class="btn btn-secondary" rel="noopener">
                             <i class="fab fa-linkedin"></i>
                             Message on LinkedIn
                         </a>
@@ -2968,7 +3123,7 @@
                         <a href="#schedule">Schedule</a>
                         <a href="#faq">FAQ</a>
                     </div>
-                    <p>&copy; 2025 AWS Studen Community Day - Chennai. All rights reserved. | Organized by AWS Cloud club St. Joseph’s Group of Institutions</p>
+                    <p>&copy; 2025 AWS Studen Community Day - Chennai. All rights reserved. | Organized by AWS Cloud club St. Joseph's Group of Institutions</p>
                     <p class="designer-credit">Designed by Gopinath</p>
                 </div>
             </div>
