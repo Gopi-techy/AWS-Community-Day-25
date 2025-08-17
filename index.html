@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS Student Community Day - Chennai 2025</title>
-    <link rel="icon" type="image/png" href="images/aws-logo-home-page.png">
+    <link rel="icon" type="image/png" href="images/logo-aws.png">
     <link rel="apple-touch-icon"
         href="https://a0.awsstatic.com/libra-css/images/site/touch-icon-iphone-60-precomposed.png">
     <link rel="stylesheet" href="styles.css">
@@ -531,33 +531,55 @@
             </div>
 
             <!-- Confirmed Speakers -->
-            <div class="speakers-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1600px; margin: 0 auto; padding: 0 2rem;">
+            <div class="speakers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; max-width: 1600px; margin: 0 auto; padding: 0 2rem; justify-content: center; align-items: start;">
                 <style>
+                    .speakers-grid {
+                        display: grid !important;
+                        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+                        gap: 3.5rem !important;
+                        max-width: 1600px !important;
+                        margin: 0 auto !important;
+                        padding: 0 2rem !important;
+                        justify-content: center !important;
+                        align-items: start !important;
+                    }
+                    
                     .speakers-grid .speaker-card {
-                        min-height: 450px;
+                        min-height: 480px;
+                        height: 480px;
+                        max-width: 380px;
+                        margin: 0 auto;
                         transform: scale(1);
                         transition: transform 0.3s ease;
+                        justify-self: center;
+                        align-self: start;
                     }
+                    
                     .speakers-grid .speaker-card:hover {
                         transform: scale(1.02);
                     }
+                    
                     .speakers-grid .speaker-card-inner {
                         height: 100%;
                         min-height: 450px;
                     }
+                    
                     .speakers-grid .speaker-front,
                     .speakers-grid .speaker-back {
                         height: 100%;
                         min-height: 450px;
                     }
+                    
                     .speakers-grid .speaker-image {
                         height: 250px;
                     }
+                    
                     .speakers-grid .speaker-image img {
                         height: 100%;
                         width: 100%;
                         object-fit: cover;
                     }
+                    
                     .speakers-grid .speaker-info {
                         padding: 1.5rem;
                         flex-grow: 1;
@@ -565,6 +587,7 @@
                         flex-direction: column;
                         justify-content: space-between;
                     }
+                    
                     .speakers-grid .speaker-details {
                         padding: 2rem;
                         height: 100%;
@@ -572,32 +595,130 @@
                         flex-direction: column;
                         justify-content: space-between;
                     }
+                    
                     .speakers-grid .speaker-social {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         margin-top: 1rem;
                     }
+                    
                     .speakers-grid .speaker-social a {
                         display: flex;
                         align-items: center;
                         justify-content: center;
                     }
-                    @media (max-width: 768px) {
+                    
+                    /* Responsive breakpoints for perfect alignment with larger gaps */
+                    @media (max-width: 700px) {
                         .speakers-grid {
                             grid-template-columns: 1fr !important;
-                            gap: 2rem !important;
-                            padding: 0 1rem !important;
+                            gap: 4rem !important;
+                            padding: 0 1.5rem !important;
+                            max-width: 450px !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 400px !important;
+                            height: 520px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 280px !important;
                         }
                     }
-                    @media (max-width: 1200px) and (min-width: 769px) {
+                    
+                    @media (min-width: 701px) and (max-width: 900px) {
                         .speakers-grid {
-                            grid-template-columns: repeat(3, 1fr) !important;
+                            grid-template-columns: repeat(2, 1fr) !important;
+                            gap: 4rem !important;
+                            max-width: 900px !important;
+                            padding: 0 2rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 420px !important;
+                            height: 500px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 250px !important;
                         }
                     }
-                    @media (max-width: 1600px) and (min-width: 1201px) {
+                    
+                    @media (min-width: 901px) and (max-width: 1100px) {
                         .speakers-grid {
-                            grid-template-columns: repeat(4, 1fr) !important;
+                            grid-template-columns: repeat(2, 1fr) !important;
+                            gap: 4.5rem !important;
+                            max-width: 950px !important;
+                            padding: 0 2.5rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 430px !important;
+                            height: 490px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 240px !important;
+                        }
+                    }
+                    
+                    @media (min-width: 1101px) and (max-width: 1217px) {
+                        .speakers-grid {
+                            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+                            gap: 4rem !important;
+                            max-width: 1200px !important;
+                            padding: 0 2rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 380px !important;
+                            height: 480px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 240px !important;
+                        }
+                    }
+                    
+                    @media (min-width: 1218px) and (max-width: 1400px) {
+                        .speakers-grid {
+                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+                            gap: 4rem !important;
+                            max-width: 1400px !important;
+                            padding: 0 2rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 380px !important;
+                            height: 480px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 250px !important;
+                        }
+                    }
+                    
+                    @media (min-width: 1401px) and (max-width: 1600px) {
+                        .speakers-grid {
+                            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+                            gap: 4rem !important;
+                            max-width: 1600px !important;
+                            padding: 0 2.5rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 380px !important;
+                            height: 480px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 235px !important;
+                        }
+                    }
+                    
+                    @media (min-width: 1601px) {
+                        .speakers-grid {
+                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+                            gap: 4rem !important;
+                            max-width: 1600px !important;
+                            padding: 0 3rem !important;
+                        }
+                        .speakers-grid .speaker-card {
+                            max-width: 350px !important;
+                            height: 480px !important;
+                        }
+                        .speakers-grid .speaker-image {
+                            height: 225px !important;
                         }
                     }
                 </style>
@@ -612,7 +733,7 @@
                             <div class="speaker-image">
                                 <img src="images/Shubham-Londhe.jpg" alt="Shubham Londhe">
                                 <div class="speaker-overlay">
-                                    <div class="speaker-bio">Improving DevOps with Generative AI</div>
+                                    <div class="speaker-bio">Stepping Into The Agentic Web: Building Smart Applications with Strands Agents and MCP</div>
                                 </div>
                             </div>
                             <div class="speaker-info">
@@ -642,234 +763,8 @@
                     </div>
                 </div>
 
-                <!-- Speaker 2: Sarah Chen - AWS Solutions Architect -->
+                <!-- Speaker 2: Aadhityaa SB - EY -->
                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/Midhun - Midhun.jpg" alt="N S Midhun">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Shift Left, Stay Safe: DevSecOps with AWS</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>N S Midhun</h3>
-                                <p class="speaker-title">HID Global Pvt Ltd</p>
-                                <p class="speaker-topic">Lead Cloud Security</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/nsmidhun/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Sarah Chen</h3>
-                                <p class="speaker-experience">8+ years in cloud architecture</p>
-                                <div class="speaker-description">
-                                    <p>Shift Left, Stay Safe: DevSecOps with AWS</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">AWS Lambda</span>
-                                        <span class="expertise-tag">API Gateway</span>
-                                        <span class="expertise-tag">DynamoDB</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 3: Dr. Emily Watson - ML Research Scientist -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/naveena passport photo - Naveena Barani Sankar.jpg" alt="Naveena Ravi">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Knowledge Graph - An overview and its Applications</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Naveena Ravi</h3>
-                                <p class="speaker-title">Astrazeneca</p>
-                                <p class="speaker-topic">Lead Consultant - Enterprise Data and AI Lead</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/naveena-ravi-00908334/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Dr. Emily Watson</h3>
-                                <p class="speaker-experience">10+ years in ML research</p>
-                                <div class="speaker-description">
-                                    <p>Dr. Watson is a leading ML researcher and AWS Machine Learning Hero. She specializes in developing cutting-edge AI solutions and has published numerous papers on machine learning algorithms.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">SageMaker</span>
-                                        <span class="expertise-tag">TensorFlow</span>
-                                        <span class="expertise-tag">Deep Learning</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 4: N S Midhun - HID Global -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/mandeep-singh-dp-brn-bg - Mandeep Singh.png" alt="Mandeep Singh">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Making DynamoDB Work for You: The Production Patterns & Pitfalls Playbook</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Mandeep Singh</h3>
-                                <p class="speaker-title">Kyndryl</p>
-                                <p class="speaker-topic"> Lead II, Software Engineering - Technical Specialist</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/msdeep14/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>N S Midhun</h3>
-                                <p class="speaker-experience">Lead Cloud Security @ HID Global Pvt Ltd</p>
-                                <div class="speaker-description">
-                                    <p>N S Midhun is a Lead Cloud Security expert at HID Global, specializing in DevSecOps practices and AWS security implementations. He brings extensive experience in securing cloud infrastructures.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">DevSecOps</span>
-                                        <span class="expertise-tag">AWS Security</span>
-                                        <span class="expertise-tag">Cloud Security</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 5: Naveena Ravi - Astrazeneca -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/IMG_6645_Original - Ramya.jpeg" alt="Ramya Natesan">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Designing Data Pipelines with GenAI on AWS</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Ramya Natesan</h3>
-                                <p class="speaker-title">Astrazeneca</p>
-                                <p class="speaker-topic">Lead consultant </p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/ramya-natesan-67499711a/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Naveena Ravi</h3>
-                                <p class="speaker-experience">Lead Consultant @ Astrazeneca</p>
-                                <div class="speaker-description">
-                                    <p>Naveena is a Lead Consultant at Astrazeneca specializing in Enterprise Data and AI solutions. She has extensive experience in implementing knowledge graphs and data-driven applications.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">Knowledge Graphs</span>
-                                        <span class="expertise-tag">Enterprise Data</span>
-                                        <span class="expertise-tag">AI Applications</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 6: Ramya Natesan - AstraZeneca -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/pic - Manoj Kumar.JPG" alt="Manoj Kumar M Rajpurohit">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">The New Workplace: Collaborating with AI Agents</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Manoj Kumar M Rajpurohit</h3>
-                                <p class="speaker-title">Amazon Web Services</p>
-                                <p class="speaker-topic">Senior Architect</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/manojpurohit1783/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Ramya Natesan</h3>
-                                <p class="speaker-experience">Lead consultant @ AstraZeneca</p>
-                                <div class="speaker-description">
-                                    <p>Ramya is a Lead consultant at AstraZeneca with expertise in designing and implementing data pipelines using Generative AI technologies on AWS platforms.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">GenAI</span>
-                                        <span class="expertise-tag">Data Pipelines</span>
-                                        <span class="expertise-tag">AWS Analytics</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Speaker 7: Vinolin Jermiah - Trainocate Networks -->
-                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="keynote-badge">
-                        <i class="fas fa-crown"></i>
-                        Workshop Speaker
-                    </div>
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/Vinolin Jermiah Photo - Vinolin Jermiah.jpg" alt="Vinolin Jermiah">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Accelerate Cloud Development with Amazon Q CLI</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Vinolin Jermiah</h3>
-                                <p class="speaker-title">Trainocate Networks Pvt Ltd</p>
-                                <p class="speaker-topic">AWS Consultant & Corporate Trainer</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/vinolinjermiah/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Vinolin Jermiah</h3>
-                                <p class="speaker-experience">AWS Consultant & Corporate Trainer @ Trainocate Networks</p>
-                                <div class="speaker-description">
-                                    <p>Vinolin is an AWS Consultant and Corporate Trainer at Trainocate Networks, specializing in cloud development acceleration and Amazon Q CLI implementation.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">Amazon Q CLI</span>
-                                        <span class="expertise-tag">Cloud Development</span>
-                                        <span class="expertise-tag">AWS Training</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 8: Aadhityaa SB - EY -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="700">
                     <div class="speaker-card-inner">
                         <div class="speaker-front">
                             <div class="speaker-image">
@@ -905,45 +800,8 @@
                     </div>
                 </div>
 
-                <!-- Speaker 9: Sujoy Roy - Solventum -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="800">
-                    <div class="speaker-card-inner">
-                        <div class="speaker-front">
-                            <div class="speaker-image">
-                                <img src="images/sujoy.jpeg" alt="Sujoy Roy">
-                                <div class="speaker-overlay">
-                                    <div class="speaker-bio">Serverless 101: The What, Why, and How of FaaS</div>
-                                </div>
-                            </div>
-                            <div class="speaker-info">
-                                <h3>Sujoy Roy</h3>
-                                <p class="speaker-title">Solventum</p>
-                                <p class="speaker-topic">Senior Cloud Engineering Manager</p>
-                                <div class="speaker-social">
-                                    <a href="https://www.linkedin.com/in/sujoys/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="speaker-back">
-                            <div class="speaker-details">
-                                <h3>Sujoy Roy</h3>
-                                <p class="speaker-experience">Senior Cloud Engineering Manager @ Solventum</p>
-                                <div class="speaker-description">
-                                    <p>Sujoy is a Senior Cloud Engineering Manager at Solventum with extensive experience in serverless architectures and Function as a Service (FaaS) implementations.</p>
-                                    <div class="speaker-expertise">
-                                        <span class="expertise-tag">Serverless</span>
-                                        <span class="expertise-tag">FaaS</span>
-                                        <span class="expertise-tag">Cloud Engineering</span>
-                                    </div>
-                                </div>
-                                <button class="back-btn" onclick="flipCard(this)">Back</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Speaker 10: Manish Jhanwar -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="900">
+                <!-- Speaker 3: Manish Jhanwar -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="speaker-card-inner">
                         <div class="speaker-front">
                             <div class="speaker-image">
@@ -979,8 +837,156 @@
                     </div>
                 </div>
 
-                <!-- Speaker 11: Omshree Butani - Accenture -->
-                <div class="speaker-card" data-aos="fade-up" data-aos-delay="1000">
+                <!-- Speaker 4: Manoj Kumar M Rajpurohit - Amazon Web Services -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/pic - Manoj Kumar.JPG" alt="Manoj Kumar M Rajpurohit">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">The New Workplace: Collaborating with AI Agents</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Manoj Kumar M Rajpurohit</h3>
+                                <p class="speaker-title">Amazon Web Services</p>
+                                <p class="speaker-topic">Senior Architect</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/manojpurohit1783/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Manoj Kumar M Rajpurohit</h3>
+                                <p class="speaker-experience">Senior Architect @ Amazon Web Services</p>
+                                <div class="speaker-description">
+                                    <p>Manoj Kumar is a Senior Architect at Amazon Web Services with extensive experience in AI and workplace collaboration technologies. He specializes in AI agent integration and modern workplace solutions.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">AI Agents</span>
+                                        <span class="expertise-tag">Workplace Solutions</span>
+                                        <span class="expertise-tag">AWS Architecture</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 5: Mandeep Singh - Kyndryl -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/mandeep-singh-dp-brn-bg - Mandeep Singh.png" alt="Mandeep Singh">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Making DynamoDB Work for You: The Production Patterns & Pitfalls Playbook</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Mandeep Singh</h3>
+                                <p class="speaker-title">Kyndryl</p>
+                                <p class="speaker-topic"> Lead II, Software Engineering - Technical Specialist</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/msdeep14/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Mandeep Singh</h3>
+                                <p class="speaker-experience">Lead II, Software Engineering - Technical Specialist @ Kyndryl</p>
+                                <div class="speaker-description">
+                                    <p>Mandeep is a Technical Specialist at Kyndryl with expertise in DynamoDB and production patterns. He specializes in making DynamoDB work effectively in production environments.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">DynamoDB</span>
+                                        <span class="expertise-tag">Production Patterns</span>
+                                        <span class="expertise-tag">Software Engineering</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 6: N S Midhun - HID Global -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/Midhun - Midhun.jpg" alt="N S Midhun">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Shift Left, Stay Safe: DevSecOps with AWS</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>N S Midhun</h3>
+                                <p class="speaker-title">HID Global Pvt Ltd</p>
+                                <p class="speaker-topic">Lead Cloud Security</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/nsmidhun/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>N S Midhun</h3>
+                                <p class="speaker-experience">Lead Cloud Security @ HID Global Pvt Ltd</p>
+                                <div class="speaker-description">
+                                    <p>N S Midhun is a Lead Cloud Security expert at HID Global, specializing in DevSecOps practices and AWS security implementations. He brings extensive experience in securing cloud infrastructures.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">DevSecOps</span>
+                                        <span class="expertise-tag">AWS Security</span>
+                                        <span class="expertise-tag">Cloud Security</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 7: Naveena Ravi - Astrazeneca -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/naveena passport photo - Naveena Barani Sankar.jpg" alt="Naveena Ravi">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Knowledge Graph - An overview and its Applications</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Naveena Ravi</h3>
+                                <p class="speaker-title">Astrazeneca</p>
+                                <p class="speaker-topic">Lead Consultant - Enterprise Data and AI Lead</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/naveena-ravi-00908334/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Naveena Ravi</h3>
+                                <p class="speaker-experience">Lead Consultant @ Astrazeneca</p>
+                                <div class="speaker-description">
+                                    <p>Naveena is a Lead Consultant at Astrazeneca specializing in Enterprise Data and AI solutions. She has extensive experience in implementing knowledge graphs and data-driven applications.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Knowledge Graphs</span>
+                                        <span class="expertise-tag">Enterprise Data</span>
+                                        <span class="expertise-tag">AI Applications</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 8: Omshree Butani - Accenture -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="800">
                     <div class="speaker-card-inner">
                         <div class="speaker-front">
                             <div class="speaker-image">
@@ -1008,6 +1014,121 @@
                                         <span class="expertise-tag">FinOps</span>
                                         <span class="expertise-tag">Agentic IDE</span>
                                         <span class="expertise-tag">Cloud Optimization</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 9: Ramya Natesan - AstraZeneca -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="900">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/IMG_6645_Original - Ramya.jpeg" alt="Ramya Natesan">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Designing Data Pipelines with GenAI on AWS</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Ramya Natesan</h3>
+                                <p class="speaker-title">Astrazeneca</p>
+                                <p class="speaker-topic">Lead consultant </p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/ramya-natesan-67499711a/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Ramya Natesan</h3>
+                                <p class="speaker-experience">Lead consultant @ AstraZeneca</p>
+                                <div class="speaker-description">
+                                    <p>Ramya is a Lead consultant at AstraZeneca with expertise in designing and implementing data pipelines using Generative AI technologies on AWS platforms.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">GenAI</span>
+                                        <span class="expertise-tag">Data Pipelines</span>
+                                        <span class="expertise-tag">AWS Analytics</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 10: Sujoy Roy - Solventum -->
+                <div class="speaker-card" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/sujoy.jpeg" alt="Sujoy Roy">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Serverless 101: The What, Why, and How of FaaS</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Sujoy Roy</h3>
+                                <p class="speaker-title">Solventum</p>
+                                <p class="speaker-topic">Senior Cloud Engineering Manager</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/sujoys/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Sujoy Roy</h3>
+                                <p class="speaker-experience">Senior Cloud Engineering Manager @ Solventum</p>
+                                <div class="speaker-description">
+                                    <p>Sujoy is a Senior Cloud Engineering Manager at Solventum with extensive experience in serverless architectures and Function as a Service (FaaS) implementations.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Serverless</span>
+                                        <span class="expertise-tag">FaaS</span>
+                                        <span class="expertise-tag">Cloud Engineering</span>
+                                    </div>
+                                </div>
+                                <button class="back-btn" onclick="flipCard(this)">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Speaker 11: Vinolin Jermiah - Trainocate Networks (Workshop Speaker) -->
+                 <div class="speaker-card" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="keynote-badge">
+                        <i class="fas fa-crown"></i>
+                        Workshop Speaker
+                    </div>
+                    <div class="speaker-card-inner">
+                        <div class="speaker-front">
+                            <div class="speaker-image">
+                                <img src="images/Vinolin Jermiah Photo - Vinolin Jermiah.jpg" alt="Vinolin Jermiah">
+                                <div class="speaker-overlay">
+                                    <div class="speaker-bio">Accelerate Cloud Development with Amazon Q CLI</div>
+                                </div>
+                            </div>
+                            <div class="speaker-info">
+                                <h3>Vinolin Jermiah</h3>
+                                <p class="speaker-title">Trainocate Networks Pvt Ltd</p>
+                                <p class="speaker-topic">AWS Consultant & Corporate Trainer</p>
+                                <div class="speaker-social">
+                                    <a href="https://www.linkedin.com/in/vinolinjermiah/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="speaker-back">
+                            <div class="speaker-details">
+                                <h3>Vinolin Jermiah</h3>
+                                <p class="speaker-experience">AWS Consultant & Corporate Trainer @ Trainocate Networks</p>
+                                <div class="speaker-description">
+                                    <p>Vinolin is an AWS Consultant and Corporate Trainer at Trainocate Networks, specializing in cloud development acceleration and Amazon Q CLI implementation.</p>
+                                    <div class="speaker-expertise">
+                                        <span class="expertise-tag">Amazon Q CLI</span>
+                                        <span class="expertise-tag">Cloud Development</span>
+                                        <span class="expertise-tag">AWS Training</span>
                                     </div>
                                 </div>
                                 <button class="back-btn" onclick="flipCard(this)">Back</button>
@@ -1132,7 +1253,7 @@
                     <div class="track" data-aos="fade-up" data-aos-delay="200">
                         <div class="track-header">
                             <h4>Track 2</h4>
-                            <span class="track-badge">Serverless</span>
+                            <span class="track-badge">Serverless and <br> Dev Tools</span>
                         </div>
                         <div class="track-sessions">
                             <div class="session-item">
@@ -2562,7 +2683,7 @@
                     <div class="organizer-info">
                         <h3>Raghul Gopal</h3>
                         <p class="organizer-title">AWS Community Builder</p>
-                        <!-- <p class="organizer-institution">AWS Community Builder</p> -->
+                        <p class="organizer-specialization">ML & Gen AI</p>
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/raghulgopaltech/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
@@ -2581,7 +2702,7 @@
                     <div class="organizer-info">
                         <h3>Jeevitha</h3>
                         <p class="organizer-title">AWS Community Builder</p>
-                        <!-- <p class="organizer-institution">AWS Community Builder</p> -->
+                        <p class="organizer-specialization">AI Engineering</p>
                         <div class="organizer-social">
                             <a href="https://www.linkedin.com/in/jeevitha-m-357979223/" title="LinkedIn"><i
                                     class="fab fa-linkedin"></i></a>
