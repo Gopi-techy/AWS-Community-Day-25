@@ -532,196 +532,225 @@
 
             <!-- Confirmed Speakers -->
             <div class="speakers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; max-width: 1600px; margin: 0 auto; padding: 0 2rem; justify-content: center; align-items: start;">
-                <style>
-                    .speakers-grid {
-                        display: grid !important;
-                        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-                        gap: 3.5rem !important;
-                        max-width: 1600px !important;
-                        margin: 0 auto !important;
-                        padding: 0 2rem !important;
-                        justify-content: center !important;
-                        align-items: start !important;
-                    }
-                    
-                    .speakers-grid .speaker-card {
-                        min-height: 480px;
-                        height: 480px;
-                        max-width: 380px;
-                        margin: 0 auto;
-                        transform: scale(1);
-                        transition: transform 0.3s ease;
-                        justify-self: center;
-                        align-self: start;
-                    }
-                    
-                    .speakers-grid .speaker-card:hover {
-                        transform: scale(1.02);
-                    }
-                    
-                    .speakers-grid .speaker-card-inner {
-                        height: 100%;
-                        min-height: 450px;
-                    }
-                    
-                    .speakers-grid .speaker-front,
-                    .speakers-grid .speaker-back {
-                        height: 100%;
-                        min-height: 450px;
-                    }
-                    
-                    .speakers-grid .speaker-image {
-                        height: 250px;
-                    }
-                    
-                    .speakers-grid .speaker-image img {
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                    }
-                    
-                    .speakers-grid .speaker-info {
-                        padding: 1.5rem;
-                        flex-grow: 1;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                    }
-                    
-                    .speakers-grid .speaker-details {
-                        padding: 2rem;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                    }
-                    
-                    .speakers-grid .speaker-social {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin-top: 1rem;
-                    }
-                    
-                    .speakers-grid .speaker-social a {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                    
-                    /* Responsive breakpoints for perfect alignment with larger gaps */
-                    @media (max-width: 700px) {
-                        .speakers-grid {
-                            grid-template-columns: 1fr !important;
-                            gap: 4rem !important;
-                            padding: 0 1.5rem !important;
-                            max-width: 450px !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 400px !important;
-                            height: 520px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 280px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 701px) and (max-width: 900px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(2, 1fr) !important;
-                            gap: 4rem !important;
-                            max-width: 900px !important;
-                            padding: 0 2rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 420px !important;
-                            height: 500px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 250px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 901px) and (max-width: 1100px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(2, 1fr) !important;
-                            gap: 4.5rem !important;
-                            max-width: 950px !important;
-                            padding: 0 2.5rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 430px !important;
-                            height: 490px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 240px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 1101px) and (max-width: 1217px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-                            gap: 4rem !important;
-                            max-width: 1200px !important;
-                            padding: 0 2rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 380px !important;
-                            height: 480px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 240px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 1218px) and (max-width: 1400px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-                            gap: 4rem !important;
-                            max-width: 1400px !important;
-                            padding: 0 2rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 380px !important;
-                            height: 480px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 250px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 1401px) and (max-width: 1600px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-                            gap: 4rem !important;
-                            max-width: 1600px !important;
-                            padding: 0 2.5rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 380px !important;
-                            height: 480px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 235px !important;
-                        }
-                    }
-                    
-                    @media (min-width: 1601px) {
-                        .speakers-grid {
-                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-                            gap: 4rem !important;
-                            max-width: 1600px !important;
-                            padding: 0 3rem !important;
-                        }
-                        .speakers-grid .speaker-card {
-                            max-width: 350px !important;
-                            height: 480px !important;
-                        }
-                        .speakers-grid .speaker-image {
-                            height: 225px !important;
-                        }
-                    }
-                </style>
+               <style>
+            .speakers-grid {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+                gap: 3.5rem !important;
+                max-width: 1600px !important;
+                margin: 0 auto !important;
+                padding: 0 2rem !important;
+                justify-content: center !important;
+                align-items: start !important;
+            }
+            
+            .speakers-grid .speaker-card {
+                min-height: 480px;
+                height: 480px;
+                max-width: 380px;
+                margin: 0 auto;
+                transform: scale(1);
+                transition: transform 0.3s ease;
+                justify-self: center;
+                align-self: start;
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                overflow: hidden;
+                position: relative;
+            }
+            
+            .keynote-badge {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+                color: white;
+                padding: 8px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                z-index: 10;
+            }
+            
+            .speakers-grid .speaker-card:hover {
+                transform: scale(1.02);
+            }
+            
+            .speakers-grid .speaker-card-inner {
+                height: 100%;
+                min-height: 450px;
+            }
+            
+            .speakers-grid .speaker-front,
+            .speakers-grid .speaker-back {
+                height: 100%;
+                min-height: 450px;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .speakers-grid .speaker-image {
+                height: 250px;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .speakers-grid .speaker-image img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            
+            .speaker-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.8));
+                color: white;
+                padding: 20px;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .speaker-card:hover .speaker-overlay {
+                transform: translateY(0);
+            }
+            
+            .speakers-grid .speaker-info {
+                padding: 1.5rem;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: center;
+            }
+            
+            .speaker-info h3 {
+                margin: 0 0 10px 0;
+                color: #333;
+                font-size: 1.4rem;
+            }
+            
+            .speaker-title {
+                color: #666;
+                font-weight: 600;
+                margin: 0 0 5px 0;
+            }
+            
+            .speaker-topic {
+                color: #888;
+                margin: 0 0 15px 0;
+            }
+            
+            .speakers-grid .speaker-social {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+            }
+            
+            .speakers-grid .speaker-social a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: #0077b5;
+                color: white;
+                border-radius: 50%;
+                text-decoration: none;
+                transition: transform 0.3s ease;
+            }
+            
+            .speakers-grid .speaker-social a:hover {
+                transform: scale(1.1);
+            }
+            
+            /* Mobile: Horizontal Slider */
+            @media (max-width: 700px) {
+                .speakers-grid {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    overflow-x: auto !important;
+                    overflow-y: hidden !important;
+                    grid-template-columns: none !important;
+                    gap: 2rem !important;
+                    padding: 0 1.5rem !important;
+                    max-width: 100vw !important;
+                    scroll-snap-type: x mandatory !important;
+                    -webkit-overflow-scrolling: touch !important;
+                    scrollbar-width: none !important;
+                    -ms-overflow-style: none !important;
+                }
+                
+                .speakers-grid::-webkit-scrollbar {
+                    display: none !important;
+                }
+                
+                .speakers-grid .speaker-card {
+                    flex: 0 0 320px !important;
+                    max-width: 320px !important;
+                    min-width: 320px !important;
+                    height: 520px !important;
+                    scroll-snap-align: center !important;
+                    margin: 0 !important;
+                }
+                .speakers-grid .speaker-image {
+                    height: 280px !important;
+                }
+            }
+            
+            /* Tablet: 2 columns */
+            @media (min-width: 701px) and (max-width: 1023px) {
+                .speakers-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 3rem !important;
+                    max-width: 800px !important;
+                    padding: 0 2rem !important;
+                }
+                .speakers-grid .speaker-card {
+                    max-width: 380px !important;
+                    height: 480px !important;
+                }
+                .speakers-grid .speaker-image {
+                    height: 240px !important;
+                }
+            }
+            
+            /* Laptop and Desktop: Always 3 columns */
+            @media (min-width: 1024px) {
+                .speakers-grid {
+                    grid-template-columns: repeat(3, 1fr) !important;
+                    gap: 3rem !important;
+                    max-width: 1200px !important;
+                    padding: 0 2rem !important;
+                }
+                .speakers-grid .speaker-card {
+                    max-width: 350px !important;
+                    height: 480px !important;
+                }
+                .speakers-grid .speaker-image {
+                    height: 240px !important;
+                }
+            }
+            
+            /* Large Desktop: Still 3 columns but with more space */
+            @media (min-width: 1400px) {
+                .speakers-grid {
+                    gap: 4rem !important;
+                    max-width: 1400px !important;
+                    padding: 0 3rem !important;
+                }
+                .speakers-grid .speaker-card {
+                    max-width: 380px !important;
+                }
+                .speakers-grid .speaker-image {
+                    height: 250px !important;
+                }
+            }
+        </style>
                 <!-- Speaker 1: Manoj Kumar M Rajpurohit - Amazon Web Service (Keynote) -->
                 <div class="speaker-card keynote-speaker" data-aos="fade-up" data-aos-delay="100">
                     <div class="keynote-badge">
@@ -844,7 +873,7 @@
                             <div class="speaker-image">
                                 <img src="images/manish.jpeg" alt="Manish Jhanwar">
                                 <div class="speaker-overlay">
-                                    <div class="speaker-bio">Software Engineering Core in the World of AI & Cloud</div>
+                                    <div class="speaker-bio">True Software Engineering in the world of AI & Cloud</div>
                                 </div>
                             </div>
                             <div class="speaker-info">
