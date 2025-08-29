@@ -4111,6 +4111,21 @@ body, html {
     color: #34A853;
 }
 
+/* Circular styling for Tamil Cloud logo */
+.tamil-cloud-circular .sponsor-image img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+}
+
+@media (max-width: 768px) {
+    .tamil-cloud-circular .sponsor-image img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
 /* Responsive Design for Sponsors */
 @media (max-width: 768px) {
     .sponsors {
