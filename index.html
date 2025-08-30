@@ -678,7 +678,7 @@
             box-shadow: 0 6px 16px rgba(255, 153, 0, 0.3);
         }
 
-        /* Mobile: Horizontal Slider with visible scroll indication */
+        /* Mobile: Optimized Horizontal Slider for 13 Cards */
         @media (max-width: 700px) {
             .speakers-grid {
                 display: flex !important;
@@ -686,55 +686,134 @@
                 overflow-x: auto !important;
                 overflow-y: hidden !important;
                 grid-template-columns: none !important;
-                gap: 1.5rem !important;
-                padding: 0 1rem 0 2rem !important;
+                gap: 1rem !important;
+                padding: 0 !important;
                 max-width: 100vw !important;
+                width: 100vw !important;
                 scroll-snap-type: x mandatory !important;
                 -webkit-overflow-scrolling: touch !important;
                 scrollbar-width: thin !important;
                 scrollbar-color: #FF9900 #f0f0f0 !important;
+                margin: 0 !important;
+                position: relative !important;
             }
             
+            /* Enhanced scrollbar visibility */
             .speakers-grid::-webkit-scrollbar {
-                height: 6px !important;
+                height: 8px !important;
                 display: block !important;
             }
             
             .speakers-grid::-webkit-scrollbar-track {
                 background: #f0f0f0 !important;
-                border-radius: 3px !important;
+                border-radius: 4px !important;
+                margin: 0 20px !important;
             }
             
             .speakers-grid::-webkit-scrollbar-thumb {
                 background: linear-gradient(90deg, #FF9900, #FF6600) !important;
-                border-radius: 3px !important;
+                border-radius: 4px !important;
             }
             
             .speakers-grid::-webkit-scrollbar-thumb:hover {
                 background: linear-gradient(90deg, #FF6600, #FF9900) !important;
             }
             
+            /* Optimized card dimensions for 13 cards */
             .speakers-grid .speaker-card {
-                flex: 0 0 300px !important;
-                max-width: 300px !important;
-                min-width: 300px !important;
-                height: 520px !important;
+                flex: 0 0 280px !important;
+                max-width: 280px !important;
+                min-width: 280px !important;
+                width: 280px !important;
+                height: 500px !important;
+                min-height: 500px !important;
                 scroll-snap-align: center !important;
                 margin: 0 !important;
                 border-radius: 20px !important;
+                box-shadow: 0 6px 24px rgba(35, 47, 62, 0.15), 0 2px 8px rgba(35, 47, 62, 0.08) !important;
             }
             
+            /* Perfect spacing for first and last cards */
             .speakers-grid .speaker-card:first-child {
-                margin-left: 1rem !important;
+                margin-left: 20px !important;
             }
             
             .speakers-grid .speaker-card:last-child {
-                margin-right: 2rem !important;
+                margin-right: 20px !important;
             }
             
+            /* Adjusted image height for mobile */
             .speakers-grid .speaker-image {
-                height: 280px !important;
+                height: 260px !important;
                 border-radius: 20px 20px 0 0 !important;
+            }
+            
+            /* Optimized card inner content */
+            .speakers-grid .speaker-card-inner {
+                height: 100% !important;
+                min-height: 500px !important;
+            }
+            
+            .speakers-grid .speaker-front,
+            .speakers-grid .speaker-back {
+                height: 100% !important;
+                min-height: 500px !important;
+            }
+            
+            /* Mobile-specific info section */
+            .speakers-grid .speaker-info {
+                padding: 1.5rem 1.2rem !important;
+            }
+            
+            .speaker-info h3 {
+                font-size: 1.3rem !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .speaker-title {
+                font-size: 1rem !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .speaker-topic {
+                font-size: 0.9rem !important;
+                margin-bottom: 15px !important;
+                line-height: 1.4 !important;
+            }
+            
+            /* Mobile keynote badge adjustment */
+            .keynote-badge {
+                top: 15px !important;
+                right: 15px !important;
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+            }
+            
+            /* Enhanced scroll indication for mobile */
+            .speakers-grid::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 20px;
+                height: 60px;
+                background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+                transform: translateY(-50%);
+                pointer-events: none;
+                z-index: 5;
+            }
+            
+            .speakers-grid::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 20px;
+                height: 60px;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent);
+                transform: translateY(-50%);
+                pointer-events: none;
+                z-index: 5;
             }
         }
         
@@ -3115,6 +3194,15 @@
                 <!-- First Row -->
                 <div class="volunteer-card">
                     <div class="volunteer-image">
+                        <img src="images/Joshua.jpg" alt="Joshua">
+                    </div>
+                    <div class="volunteer-info">
+                        <h3>Joshua</h3>
+                    </div>
+                </div>
+
+                <div class="volunteer-card">
+                    <div class="volunteer-image">
                         <img src="images/Reya_Josephine_H.jpg" alt="Reya Josephine">
                     </div>
                     <div class="volunteer-info">
@@ -3192,15 +3280,6 @@
                     </div>
                     <div class="volunteer-info">
                         <h3>Parkkavi</h3>
-                    </div>
-                </div>
-
-                <div class="volunteer-card">
-                    <div class="volunteer-image">
-                        <img src="images/Joshua.jpg" alt="Joshua">
-                    </div>
-                    <div class="volunteer-info">
-                        <h3>Joshua</h3>
                     </div>
                 </div>
             </div>
